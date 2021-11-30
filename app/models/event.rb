@@ -1,6 +1,10 @@
 class Event < ApplicationRecord
+  # DISTRICTS = %w[]
+  STATUSES = %w[pending accepted declined]
+
   belongs_to :user
-  has_many :city_hall_participants, through: :user
+  has_many :event_participations
+  has_many :participants, through: :event_participations, source: :user
 
   validates :name,
             :district,
@@ -12,4 +16,5 @@ class Event < ApplicationRecord
             :pricing_description,
             :status,
             presence: true
+  validates :status, inclusion: { in: STATUSES }
 end
