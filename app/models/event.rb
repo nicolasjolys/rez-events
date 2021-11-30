@@ -11,7 +11,6 @@ class Event < ApplicationRecord
   validates :name,
             :public_description,
             :address,
-            :category,
             :start_at,
             :end_at,
             :contact_first_name,
@@ -22,5 +21,6 @@ class Event < ApplicationRecord
             presence: true
   validates :district, inclusion: { in: DISTRICTS }, presence: true
   validates :required_safety_level, inclusion: { in: SAFETY_LEVELS }, presence: true
+  validates :category, inclusion: { in: CATEGORIES }, presence: true
   validates :status, inclusion: { in: STATUSES }, presence: true
 end
