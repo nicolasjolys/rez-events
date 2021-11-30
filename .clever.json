@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_9598cea2-6989-49f7-890c-06e1749d4524",
+      "org_id": "user_d5e09b2a-4be5-4db6-9b87-1e79f5a9a8ef",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_9598cea2-6989-49f7-890c-06e1749d4524.git",
+      "name": "rez-events",
+      "alias": "rez-events"
+    }
+  ]
+}
