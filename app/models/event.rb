@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   DISTRICTS = ['La Blordière', 'Château La Houssais', 'Pont-Rousseau', 'Ragon', 'Hôtel de ville', 'Trentemoult-les Isles']
+  CATEGORIES = ['Culture', 'Sport', 'Education-Jeunesse', 'Developpement durable', 'Solidarité', 'Santé', 'Petite enfance', 'Dialogue citoyen', 'Commémoration', 'Autre']
   SAFETY_LEVELS = ['Niveau I', 'Niveau II', 'Niveau III']
   STATUSES = %w[pending accepted declined]
 
@@ -9,7 +10,6 @@ class Event < ApplicationRecord
 
   validates :name,
             :public_description,
-            :district,
             :address,
             :category,
             :start_at,
@@ -18,11 +18,9 @@ class Event < ApplicationRecord
             :contact_last_name,
             :contact_email,
             :contact_phone_number,
-            :required_safety_level,
             :pricing_description,
-            :status,
             presence: true
-  validates :district, inclusion: { in: DISTRICTS }
-  validates :required_safety_level, inclusion: { in: SAFETY_LEVELS }
-  validates :status, inclusion: { in: STATUSES }
+  validates :district, inclusion: { in: DISTRICTS }, presence: true
+  validates :required_safety_level, inclusion: { in: SAFETY_LEVELS }, presence: true
+  validates :status, inclusion: { in: STATUSES }, presence: true
 end
