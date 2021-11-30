@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     # events#index pour afficher la liste des events planifiés auxquels on peut vouloir participer
     # en tant qu'élu
     resources :events, only: [:index] do
-      resources :city_hall_participants, only: [:create]
+      resources :event_participations, only: [:create]
     end
 
     namespace :admin do
