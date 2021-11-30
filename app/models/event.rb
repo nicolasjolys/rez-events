@@ -22,6 +22,7 @@ class Event < ApplicationRecord
             :pricing_description,
             :status,
             presence: true
-  validates :status, inclusion: { in: STATUSES }
   validates :district, inclusion: { in: DISTRICTS }
+  validates :required_safety_level, inclusion: { in: SAFETY_LEVELS }
+  validates :status, inclusion: { in: STATUSES }
 end
