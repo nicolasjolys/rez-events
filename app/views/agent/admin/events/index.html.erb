@@ -1,0 +1,9 @@
+<% @events.each do |event| %>
+  <li>
+    <%= event.name %>
+    <%= event.status %>
+    <%= event.contact_last_name %>
+    <%= button_to "Accept", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success mb-2 text-white w-25" %>
+    <%= button_to "Decline", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-danger mb-2 w-25" %>
+  </li>
+<% end %>
