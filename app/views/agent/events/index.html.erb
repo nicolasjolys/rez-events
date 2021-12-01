@@ -10,6 +10,8 @@
     <% else %>
         <%= button_to "Indiquer ma participation", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2 w-25" %>
     <% end %>
-    <%=  %>
+  <% event.participants.each do |participant| %>
+  <%= participant.first_name  %> <%= participant.last_name %>
+  <% end %>
   </li>
 <% end %>
