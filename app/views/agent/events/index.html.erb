@@ -1,0 +1,15 @@
+<% @events.each do |event| %>
+  <li>
+    <%= event.name %>
+    <%= event.status %>
+    <%= event.contact_last_name %>
+    <%= event.id %>
+    <% if event.participants.pluck(:id).include?(current_user.id) %>
+        <p>Vous participez déjà à cet événement</p>
+    <% else %>
+        <%= button_to "Indiquer ma participation", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2 w-25" %>
+    <% end %>
+    <%=  %>
+
+  </li>
+<% end %>
