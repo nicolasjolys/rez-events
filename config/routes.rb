@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :events, only: [:index] do
       resources :event_participations, only: [:create]
     end
+    resources :event_participations, only: [:destroy]
 
     namespace :admin do
       # events#index pour afficher la liste des events à valider ou refuser pour un admin
