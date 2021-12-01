@@ -5,11 +5,11 @@
     <%= event.contact_last_name %>
     <%= event.id %>
     <% if event.participants.pluck(:id).include?(current_user.id) %>
-        <p>Vous participez déjà à cet événement</p>
+        <% evt =  EventParticipation.where("user_id = ? AND event_id = ?", current_user.id, event.id).first %>
+        <%= button_to "Ne plus participer à cet événement", agent_event_participation_path(evt.id), method: :delete, class: "btn btn-warning mb-2 w-25" %>
     <% else %>
         <%= button_to "Indiquer ma participation", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2 w-25" %>
     <% end %>
     <%=  %>
-
   </li>
 <% end %>
