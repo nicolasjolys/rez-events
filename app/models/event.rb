@@ -4,6 +4,9 @@ class Event < ApplicationRecord
   SAFETY_LEVELS = ['Niveau I', 'Niveau II', 'Niveau III']
   STATUSES = %w[pending accepted declined]
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   belongs_to :user
   has_many :event_participations
   has_many :participants, through: :event_participations, source: :user

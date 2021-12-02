@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Tous les évènements de Rezé!</h1>
+
+  <%= render "shared/search" %>
+
+
+    <% @events.each do |event|%>
+             name= <%= event.name %><br>
+             <% if event.organization_name?  %>
+             orga= <%= event.organization_name %><br>
+             <% end %>
+
+             address = <%= event.address %><br>
+             quartier = <%= event.district %><br>
+             category = <%= event.category %><br>
+             prix = <%= event.pricing_description %><br>
+             <%= l(event.start_at, format: "%^a") %><br>
+             <%= l(event.start_at, format: "%e") %><br>
+             <%= l(event.start_at, format: "%^b") %><br>
+             <%= l(event.start_at, format: "%HH%M") %><br>
+    <% end %>
+
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
