@@ -1,0 +1,6 @@
+<% if event.participants.pluck(:id).include?(current_user.id) %>
+    <% evt =  EventParticipation.find_by(user_id: current_user.id, event_id: event.id) %>
+    <%= button_to "Ne plus participer à cet événement", agent_event_participation_path(evt.id), method: :delete, class: "btn btn-warning mb-2 w-100" %>
+<% else %>
+    <%= button_to "Indiquer ma participation", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2 w-100" %>
+<% end %>
