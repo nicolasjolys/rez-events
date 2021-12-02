@@ -4,58 +4,86 @@
 
 <div class="container-fluid" id="accordion">
   <% @events.each do |event| %>
-    <div class="card w-75 mx-auto mt-4">
-      <div class="card-header d-flex justify-content-between" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-        <div class="info-name-orga mr-auto">
-          <h4><%= event.name %></h4>
-          <h5><%= event.organization_name %></h5>
+    <div class="card w-75 mx-auto mt-4 <%= category_name_to_border(event.category) %>" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+      <div class="card-header d-flex justify-content-between btn p-4 ">
+        <div class="primary-icon text-left <%= category_name_to_color(event.category) %>">
+          <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
         </div>
-        <div class="info-localisation mr-5">
-          <p><%= event.district %></p>
-          <p><%= event.address %></p>
+
+        <div class="info-event-header">
+          <div class="info-header text-left mb-3">
+            <h4><%= event.name %></h4>
+            <h5><%= event.organization_name %></h5>
+          </div>
+          <div class="info-localisation mr-5 text-left d-flex">
+            <div class="address w-50">
+              <p><i class="fas fa-map-marker-alt mr-1"></i><%= event.address %></p>
+            </div>
+            <div class="district w-50">
+              <p class="ml-5 text-center p-1"><%= event.district %></p>
+            </div>
+          </div>
         </div>
+        <div class="validations">
+          <%= button_to "Accepter", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success w-100 text-white m-1" %>
+          <%= button_to "Refuser", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-warning w-100 m-1" %>
+        </div>
+
         <div class="info-dates">
-          <p><%= event.start_at.strftime("%d/%m/%Y, %H:%M") %></p>
-          <p><%= event.end_at.strftime("%d/%m/%Y, %H:%M") %></p>
+          <p><%= event.start_at.strftime("%d/%m/%Y") %></p>
+          <p><%= event.end_at.strftime("%d/%m/%Y") %></p>
         </div>
       </div>
+
       <div id="collapse<%= event.id%>" class="collapse" aria-labelledby="heading<%= event.id%>" data-parent="#accordion">
-      <div class="card-body d-flex">
-        <div class="infos-event w-50">
-          <div class="public-comment">
-            <p><%= event.category %></p>
-            <p><%= event.public_description %></p>
+        <div class="card-body d-flex">
+          <div class="infos-event w-50">
+            <div class="public-comment d-flex">
+              <div class="icone d-flex align-items-center">
+                <i class="fas fa-info-circle fa-2x"></i>
+              </div>
+              <div class="public-infos ml-5 mb-5">
+                <p><%= event.category %></p>
+                <p><%= event.public_description %></p>
+              </div>
+            </div>
+            <div class="infos-utiles d-flex mb-5">
+              <div class="icone d-flex align-items-center">
+                <i class="fas fa-euro-sign fa-2x"></i>
+              </div>
+              <div class="utiles-info ml-5">
+                <p><%= event.pricing_description %></p>
+              </div>
+            </div>
+            <div class="infos-referent d-flex mb-5">
+              <div class="icone d-flex align-items-center">
+                <i class="fas fa-address-card fa-2x"></i>
+              </div>
+              <div class="referent-infos ml-5">
+                <p class="font-weight-bold"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
+                <p><%= event.contact_email %></p>
+                <p><%= event.contact_phone_number %></p>
+              </div>
+            </div>
           </div>
-          <div class="infos-utiles">
-            <p><%= event.pricing_description %></p>
-          </div>
-          <div class="infos-referent">
-            <p class="font-weight-bold"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
-            <p><%= event.contact_email %></p>
-            <p><%= event.contact_phone_number %></p>
+          <div class="logistique w-50 text-center">
+            <div class="infos-securite btn btn-warning mb-3 w-100">
+              <p><%= event.required_safety_level %></p>
+            </div>
+            <div class="infos-matos btn btn-light d-flex mb-3 w-100">
+              <% if event.equipment_requested? %>
+                <p>Demande de matériel</p>
+                <p><%= event.requested_equipment_description %></p>
+              <% else %>
+                <p>Pas de demande de matériel</p>
+              <% end %>
+            </div>
+            <div class="remarques btn btn-light mb-3 w-100 text-left">
+              <p>Commentaires</p>
+              <p><%= event.general_comment %></p>
+            </div>
           </div>
         </div>
-        <div class="logistique w-50">
-          <div class="infos-securite">
-            <p><%= event.required_safety_level %></p>
-          </div>
-          <div class="infos-matos">
-            <% if event.equipment_requested? %>
-              <p>Demande de matériel</p>
-              <p><%= event.requested_equipment_description %></p>
-            <% else %>
-              <p>Pas de demande de matériel.</p>
-            <% end %>
-          </div>
-          <div class="remarques">
-            <p><%= event.general_comment %></p>
-          </div>
-          <div class="validations d-flex justify-content-around">
-            <a href="#" class="btn btn-success">Accepter</a>
-            <a href="#" class="btn btn-warning">Refuser</a>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
   <% end %>
