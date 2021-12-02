@@ -1,9 +1,62 @@
-<% @events.each do |event| %>
-  <li>
-    <%= event.name %>
-    <%= event.status %>
-    <%= event.contact_last_name %>
-    <%= button_to "Accept", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success mb-2 text-white w-25" %>
-    <%= button_to "Decline", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-danger mb-2 w-25" %>
-  </li>
-<% end %>
+<div class="title text-center border-bottom mt-2">
+  <h3>Evénements à valider - <span class="event-to-validate"><%= @events.length %></span></h3>
+</div>
+
+<div class="container-fluid" id="accordion">
+  <% @events.each do |event| %>
+    <div class="card w-75 mx-auto mt-4">
+      <div class="card-header d-flex justify-content-between" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+        <div class="info-name-orga mr-auto">
+          <h4><%= event.name %></h4>
+          <h5><%= event.organization_name %></h5>
+        </div>
+        <div class="info-localisation mr-5">
+          <p><%= event.district %></p>
+          <p><%= event.address %></p>
+        </div>
+        <div class="info-dates">
+          <p><%= event.start_at.strftime("%d/%m/%Y, %H:%M") %></p>
+          <p><%= event.end_at.strftime("%d/%m/%Y, %H:%M") %></p>
+        </div>
+      </div>
+      <div id="collapse<%= event.id%>" class="collapse" aria-labelledby="heading<%= event.id%>" data-parent="#accordion">
+      <div class="card-body d-flex">
+        <div class="infos-event w-50">
+          <div class="public-comment">
+            <p><%= event.category %></p>
+            <p><%= event.public_description %></p>
+          </div>
+          <div class="infos-utiles">
+            <p><%= event.pricing_description %></p>
+          </div>
+          <div class="infos-referent">
+            <p class="font-weight-bold"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
+            <p><%= event.contact_email %></p>
+            <p><%= event.contact_phone_number %></p>
+          </div>
+        </div>
+        <div class="logistique w-50">
+          <div class="infos-securite">
+            <p><%= event.required_safety_level %></p>
+          </div>
+          <div class="infos-matos">
+            <% if event.equipment_requested? %>
+              <p>Demande de matériel</p>
+              <p><%= event.requested_equipment_description %></p>
+            <% else %>
+              <p>Pas de demande de matériel.</p>
+            <% end %>
+          </div>
+          <div class="remarques">
+            <p><%= event.general_comment %></p>
+          </div>
+          <div class="validations d-flex justify-content-around">
+            <a href="#" class="btn btn-success">Accepter</a>
+            <a href="#" class="btn btn-warning">Refuser</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
+</div>
