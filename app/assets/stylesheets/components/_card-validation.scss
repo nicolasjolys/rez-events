@@ -1,0 +1,35 @@
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.card-header {
+  background-color: white;
+  h4 {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  h5 {
+    font-size: 1em;
+    color: lightgray;
+  }
+  .info-event-header {
+    width: 65%;
+  }
+  .address {
+    font-size: 1em;
+  }
+  .info-dates {
+    width: 15%;
+  }
+}
+
+.district p {
+  border-radius: 20px;
+  background-color: lightgray;
+}
+
+.btn-success, .btn-warning {
+  border-radius: 10px;
+}

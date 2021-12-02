@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   DISTRICTS = ['La Blordière', 'Château La Houssais', 'Pont-Rousseau', 'Ragon', 'Hôtel de ville', 'Trentemoult-les Isles']
   CATEGORIES = ['Culture', 'Sport', 'Education-Jeunesse', 'Developpement durable', 'Solidarité', 'Santé', 'Petite enfance', 'Dialogue citoyen', 'Commémoration', 'Autre']
-  SAFETY_LEVELS = ['Niveau I', 'Niveau II', 'Niveau III']
+  SAFETY_LEVELS = ['Niveau 1 - Manifestation de moins de 1500 personnes', 'Niveau 2 - Manifestation entre 1500 et 5000 personnes', 'Niveau 3 - Manifestation de plus de 5000 personnes']
   STATUSES = %w[pending accepted declined]
 
   geocoded_by :address

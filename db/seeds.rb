@@ -129,7 +129,7 @@ event1 = Event.create!(
   contact_last_name: resident1.last_name,
   contact_email: resident1.email,
   contact_phone_number: resident1.phone_number,
-  required_safety_level: "Niveau I",
+  required_safety_level: "Niveau 1 - Manifestation de moins de 1500 personnes",
   pricing_description: "Ramenez un gateau ou une quiche",
   status: "pending"
 )
@@ -149,7 +149,7 @@ event2 = Event.create!(
   contact_last_name: organization2.last_name,
   contact_email: organization2.email,
   contact_phone_number: organization2.phone_number,
-  required_safety_level: "Niveau I",
+  required_safety_level: 'Niveau 2 - Manifestation entre 1500 et 5000 personnes',
   pricing_description: "Gratuit, buvette payante",
   status: "pending"
 )
@@ -169,9 +169,9 @@ event3 = Event.create!(
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
-  required_safety_level: "Niveau I",
+  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
   pricing_description: "Gratuit",
-  status: "accepted",
+  status: "pending",
   accepted_at: Date.today
 )
 
@@ -190,9 +190,85 @@ event4 = Event.create!(
   contact_last_name: agent2.last_name,
   contact_email: agent2.email,
   contact_phone_number: agent2.phone_number,
-  required_safety_level: "Niveau I",
+  required_safety_level: "Niveau 1 - Manifestation de moins de 1500 personnes",
   pricing_description: "Gratuit",
-  status: "declined"
+  status: "pending"
+)
+
+event5 = Event.create!(
+  user: admin1,
+  name: "Réchauffement climatique",
+  public_description: "Echange animés par les élus autour des améliorations possible",
+  district: "Pont-Rousseau",
+  address: "Avenue du pont-rousseau, 44000 Rezé",
+  category: "Culture",
+  start_at: Date.today - start_time.days,
+  end_at: Date.today - end_time.days,
+  contact_first_name: admin1.first_name,
+  contact_last_name: admin1.last_name,
+  contact_email: admin1.email,
+  contact_phone_number: admin1.phone_number,
+  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  pricing_description: "Gratuit",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+event6 = Event.create!(
+  user: admin1,
+  name: "Réchauffement climatique",
+  public_description: "Echange animés par les élus autour des améliorations possible",
+  district: "Pont-Rousseau",
+  address: "Avenue du pont-rousseau, 44000 Rezé",
+  category: "Solidarité",
+  start_at: Date.today - start_time.days,
+  end_at: Date.today - end_time.days,
+  contact_first_name: admin1.first_name,
+  contact_last_name: admin1.last_name,
+  contact_email: admin1.email,
+  contact_phone_number: admin1.phone_number,
+  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  pricing_description: "Gratuit",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+event7 = Event.create!(
+  user: admin1,
+  name: "Réchauffement climatique",
+  public_description: "Echange animés par les élus autour des améliorations possible",
+  district: "Pont-Rousseau",
+  address: "Avenue du pont-rousseau, 44000 Rezé",
+  category: "Santé",
+  start_at: Date.today - start_time.days,
+  end_at: Date.today - end_time.days,
+  contact_first_name: admin1.first_name,
+  contact_last_name: admin1.last_name,
+  contact_email: admin1.email,
+  contact_phone_number: admin1.phone_number,
+  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  pricing_description: "Gratuit",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+event8 = Event.create!(
+  user: admin1,
+  name: "Réchauffement climatique",
+  public_description: "Echange animés par les élus autour des améliorations possible",
+  district: "Pont-Rousseau",
+  address: "Avenue du pont-rousseau, 44000 Rezé",
+  category: "Petite enfance",
+  start_at: Date.today - start_time.days,
+  end_at: Date.today - end_time.days,
+  contact_first_name: admin1.first_name,
+  contact_last_name: admin1.last_name,
+  contact_email: admin1.email,
+  contact_phone_number: admin1.phone_number,
+  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  pricing_description: "Gratuit",
+  status: "pending",
+  accepted_at: Date.today
 )
 
 puts "Event participations creation"
