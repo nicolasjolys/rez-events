@@ -2,68 +2,62 @@
   <h3>Evénements à valider - <span class="event-to-validate"><%= @events.length %></span></h3>
 </div>
 
-<div class="card w-75 mx-auto mt-4">
-  <div class="card-header d-flex justify-content-between">
-    <div class="info-name-orga">
-      <h4>NOM DE L'EVENT</h4><br>
-      <h5>Association / organisation</h5>
-    </div>
-    <div class="info-localisation">
-      <p>QUARTIER CONCERNE</p>
-      <p>Adresse</p>
-    </div>
-    <div class="info-dates">
-      <p>DATE DEBUT</p>
-      <p>DATE FIN</p>
-    </div>
-  </div>
-  <div class="card-body d-flex">
-    <div class="infos-event w-50">
-      <div class="public-comment">
-        <p>PUBLIC DESCRIPTION avec du blablablaaaa</p>
-      </div>
-      <div class="infos-utiles">
-        <p>tarification</p>
-      </div>
-      <div class="infos-referent">
-        <p>NOM PRENOM</p>
-        <p>ADRESSE MAIL</p>
-        <p>TELEPHONE</p>
-      </div>
-    </div>
-    <div class="logistique w-50">
-      <div class="infos-securite">
-        <p>NIBEAU DE SECURISATION</p>
-      </div>
-      <div class="infos-matos">
-        <p>DEMANDE DE MATERIEL</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, nisi error! Minus, alias laborum natus corrupti hic a rem nobis inventore repudiandae quis modi culpa adipisci non enim quas magnam.</p>
-      </div>
-      <div class="remarques">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia rem saepe doloribus sapiente? Dolor porro, itaque quod nisi explicabo numquam laudantium nam velit. Vel voluptatem mollitia velit. Corrupti, sequi asperiores.</p>
-      </div>
-
-      <div class="validations">
-        <a href="#" class="btn btn-primary w-50">Accepter</a>
-        <a href="#" class="btn btn-primary w-50">Refuser</a>
-      </div>
-    </div>
-
-
-</div>
-
 <div class="container">
   <% @events.each do |event| %>
-    <li>
-      <%= event.name.upcase %>
-      <br>
-      <%= event.address %>
-      <%= event.contact_last_name %>
-      <%= button_to "Accept", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success mb-2 text-white w-25" %>
-      <%= button_to "Decline", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-danger mb-2 w-25" %>
-    </li>
-<% end %>
+    <div class="card w-75 mx-auto mt-4">
+      <div class="card-header d-flex justify-content-between mt-4">
+        <div class="info-name-orga">
+          <h4><%= event.name %></h4>
+          <h5><%= event.organization_name %></h5>
+        </div>
+        <div class="info-localisation">
+          <p><%= event.district %></p>
+          <p><%= event.address %></p>
+        </div>
+        <div class="info-dates">
+          <p><%= event.start_at %></p>
+          <p><%= event.end_at %></p>
+        </div>
+      </div>
+      <div class="card-body d-flex">
+        <div class="infos-event w-50">
+          <div class="public-comment">
+            <p><%= event.public_description %></p>
+          </div>
+          <div class="infos-utiles">
+            <p><%= event.pricing_description %></p>
+          </div>
+          <div class="infos-referent">
+            <p><%= event.contact_last_name %> <%= event.contact_first_name %></p>
+            <p><%= event.contact_email %></p>
+            <p><%= event.contact_phone_number %></p>
+          </div>
+        </div>
+        <div class="logistique w-50">
+          <div class="infos-securite">
+            <p><%= event.required_safety_level %></p>
+          </div>
+          <div class="infos-matos">
+            <% if event.equipment_requested? %>
+              <p>Demande de matériel</p>
+              <p><%= event.requested_equipment_description %></p>
+            <% else %>
+              <p>Pas de demande de matériel.</p>
+            <% end %>
+          </div>
+          <div class="remarques">
+            <p><%= event.general_comment %></p>
+          </div>
+          <div class="validations d-flex justify-content-around">
+            <a href="#" class="btn btn-success">Accepter</a>
+            <a href="#" class="btn btn-warning">Refuser</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
 
 <div class="title text-center border-bottom mt-2">
   <h3>Evénements à venir</h3>
