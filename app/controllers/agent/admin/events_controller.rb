@@ -7,11 +7,15 @@ class Agent::Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.status = "declined"
     @event.save
+
+    redirect_to agent_admin_events_path
   end
 
   def accept
     @event = Event.find(params[:id])
     @event.status = "accepted"
     @event.save
+
+    redirect_to agent_admin_events_path
   end
 end
