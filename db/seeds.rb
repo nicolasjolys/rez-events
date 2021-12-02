@@ -239,7 +239,7 @@ event7 = Event.create!(
   public_description: "Echange animés par les élus autour des améliorations possible",
   district: "Pont-Rousseau",
   address: "Rue viau, 44000 Rezé",
-  category: "Santé",
+  category: "Culture",
   start_at: Date.today - start_time.days,
   end_at: Date.today - end_time.days,
   contact_first_name: admin1.first_name,

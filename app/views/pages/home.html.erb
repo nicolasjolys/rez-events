@@ -2,8 +2,10 @@
 
   <%= render "shared/search" %>
 
-
-    <% @events.each do |event|%>
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+        <% @events.each do |event|%>
              name= <%= event.name %><br>
              <% if event.organization_name?  %>
              orga= <%= event.organization_name %><br>
@@ -19,10 +21,12 @@
              <%= l(event.start_at, format: "%HH%M") %><br>
     <% end %>
 
-
-<div id="map"
-     style="width: 100%; height: 600px;"
+    </div>
+    <div class="col-5">
+    <div id="map"
+     style="width: 100%; height: 80vh; position: fi "
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+    </div>
+  </div>
+</div>
