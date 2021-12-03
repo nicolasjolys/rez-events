@@ -1,8 +1,10 @@
-
+<div class="title text-center border-bottom mt-2">
+  <h3>Evénements à valider - <span class="event-to-validate"><%= @events.length %></span></h3>
+</div>
 
 <div class="container-fluid" id="accordion">
   <% @events.each do |event| %>
-    <div class="card mx-auto mt-4 <%= category_name_to_border(event.category) %>" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+    <div class="card mx-auto mt-4" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
       <div class="card-header d-flex justify-content-between align-items-center btn p-0">
         <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
           <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
@@ -32,51 +34,53 @@
       </div>
 
       <div id="collapse<%= event.id%>" class="collapse" aria-labelledby="heading<%= event.id%>" data-parent="#accordion">
-        <div class="card-body d-flex">
-          <div class="infos-event">
-            <div class="public-comment d-flex">
-              <div class="icone">
-              <i class="fas fa-info-circle fa-2x"></i>
-            </div>
-              <div class="public-infos text-left">
-                <p class="bold"><%= event.category %></p>
-                <p><%= event.public_description %></p>
+        <div class="card-body d-flex w-100 justify-content-between">
+          <div class="d-flex left-infos-collapsed">
+            <div class="infos-event">
+              <div class="public-comment d-flex">
+                <div class="icone <%= category_name_to_color(event.category) %>">
+                  <i class="fas fa-info-circle fa-2x"></i>
+                </div>
+                <div class="public-infos text-left mb-5">
+                  <p class="bold"><%= event.category %></p>
+                  <p class="secondary-info"><%= event.public_description %></p>
+                </div>
+              </div>
+              <div class="infos-utiles d-flex mb-5">
+                <div class="icone <%= category_name_to_color(event.category) %>">
+                  <i class="fas fa-euro-sign fa-2x"></i>
+                </div>
+                <div class="utiles-info">
+                  <p><%= event.pricing_description %></p>
+                </div>
+              </div>
+              <div class="infos-referent d-flex mb-5">
+                <div class="icone <%= category_name_to_color(event.category) %>">
+                  <i class="fas fa-address-card fa-2x"></i>
+                </div>
+                <div class="referent-infos">
+                  <p class="font-weight-bold"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
+                  <p class="secondary-info"><%= event.contact_email %></p>
+                  <p class="secondary-info"><%= event.contact_phone_number %></p>
+                </div>
               </div>
             </div>
-            <div class="infos-utiles d-flex mb-5">
-              <div class="icone">
-                <i class="fas fa-euro-sign fa-2x"></i>
+            <div class="logistique text-center">
+              <div class="infos-securite bg-danger">
+                <p class="mb-0 text-white"><%= event.required_safety_level %></p>
               </div>
-              <div class="utiles-info ml-5">
-                <p><%= event.pricing_description %></p>
+              <div class="infos-matos mt-4">
+                <% if event.equipment_requested? %>
+                  <h6>Demande de matériel</h6>
+                  <p><%= event.requested_equipment_description %></p>
+                <% else %>
+                  <h6>Pas de demande de matériel</h6>
+                <% end %>
               </div>
-            </div>
-            <div class="infos-referent d-flex mb-5">
-              <div class="icone">
-                <i class="fas fa-address-card fa-2x"></i>
+              <div class="remarques mt-4">
+                <h6>Commentaires</h6>
+                <p><%= event.general_comment %></p>
               </div>
-              <div class="referent-infos ml-5">
-                <p class="font-weight-bold"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
-                <p><%= event.contact_email %></p>
-                <p><%= event.contact_phone_number %></p>
-              </div>
-            </div>
-          </div>
-          <div class="logistique text-center">
-            <div class="infos-securite btn btn-warning mb-3 w-100">
-              <p><%= event.required_safety_level %></p>
-            </div>
-            <div class="infos-matos btn btn-light d-flex mb-3 w-100">
-              <% if event.equipment_requested? %>
-                <p>Demande de matériel</p>
-                <p><%= event.requested_equipment_description %></p>
-              <% else %>
-                <p>Pas de demande de matériel</p>
-              <% end %>
-            </div>
-            <div class="remarques btn btn-light mb-3 w-100 text-left">
-              <p>Commentaires</p>
-              <p><%= event.general_comment %></p>
             </div>
           </div>
           <div class="info-dates"></div>

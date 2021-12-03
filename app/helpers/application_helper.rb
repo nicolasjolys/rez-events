@@ -14,7 +14,7 @@ module ApplicationHelper
     }[category_name]
   end
 
-  def category_name_to_border(category_name)
+  def category_name_to_bg(category_name)
     {
       "Sport" => "sport-bg",
       "Solidarité" => "solidarite-bg",

@@ -1,8 +1,19 @@
 .card {
   border: none;
   background-color: white;
-  width: 70%;
+  width: 70rem;
   border-radius: 1rem;
+
+  .info-dates {
+    border-bottom-right-radius: 0;
+
+  }
+
+  &.collapsed {
+    .info-dates {
+      border-bottom-right-radius: 1rem;
+    }
+  }
 }
 
 .card-header {
@@ -30,14 +41,14 @@
   }
   .info-dates {
     width: 9rem;
-    background-color: #F9D5A7;
+    background-color: #C9D8B6;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    // border-bottom-right-radius: 1rem;
   }
   .primary-icon {
     height: 100%;
@@ -66,7 +77,7 @@
 
 .district {
   border-radius: 10px;
-  background-color: #F9D5A7;
+  background-color: #C9D8B6;
 }
 
 .bold {
@@ -77,15 +88,52 @@
   .card-body {
     padding: 0;
   }
+  .left-infos-collapsed {
+    flex-grow: 1;
+    padding: 1rem 2rem;
+
+    .infos-event {
+      width: 50%;
+    }
+
+    .logistique {
+      flex-grow: 1;
+    }
+  }
   .info-dates {
     width: 9rem;
     background-color: lightgray;
+    border-bottom-right-radius: 1rem;
   }
 }
 
 .icone {
   height: 100%;
-  width: 8rem;
-  place-content: center;
-  display: grid;
+  width: 4rem;
+}
+
+.infos-event, .logistique {
+  padding-top: 2em;
+}
+
+.secondary-info {
+  font-size: 0.8em;
+}
+
+.infos-securite {
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 0.8em;
+}
+
+.infos-matos h6{
+  background-color: lightgray;
+  border-radius: 10px 10px 0 0;
+  padding: 1em;
+}
+
+.remarques h6 {
+  background-color: lightgray;
+  border-radius: 10px 10px 0 0;
+  padding: 1em;
 }
