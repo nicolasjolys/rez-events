@@ -1,14 +1,21 @@
 .card {
-  border-radius: 10px;
-  overflow: hidden;
+  border: none;
   background-color: white;
-  width: 60%;
+  width: 70%;
+  border-radius: 1rem;
 }
 
 .card-header {
+  border: none;
   background-color: white;
+  height: 8rem;
+  border-radius: 1rem;
+
+  &:first-child {
+    border-radius: 1rem;
+  }
+
   h4 {
-    font-weight: bold;
     font-size: 1.3em;
   }
   h5 {
@@ -16,13 +23,27 @@
     color: lightgray;
   }
   .info-event-header {
-    width: 65%;
+    width: 60%;
   }
   .address {
     font-size: 1em;
   }
   .info-dates {
-    width: 15%;
+    width: 9rem;
+    background-color: lightgray;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  .primary-icon {
+    height: 100%;
+    width: 8rem;
+    place-content: center;
+    display: grid;
   }
 }
 
@@ -31,6 +52,29 @@
   background-color: lightgray;
 }
 
-.btn-success, .btn-warning {
+.btn-success, .btn-danger {
   border-radius: 10px;
+}
+
+.address p {
+  font-size: 0.8em;
+}
+
+.district {
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.collapse {
+  .card-body {
+    padding: 0;
+  }
+  .info-dates {
+    width: 9rem;
+    background-color: lightgray;
+  }
 }
