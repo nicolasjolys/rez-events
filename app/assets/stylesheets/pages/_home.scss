@@ -1,1 +1,35 @@
 // Specific CSS for your home-page
+
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: -webkit-fill-available;
+  }
+}
+
+
+
+.home-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-image: url('chess.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  width: 100 vw;
+  text-align: center;
+
+  div {
+  color:white;
+  margin: 20px;
+}
+
+}
+
+h1 {
+  color:white;
+  font-weight: 700;
+  font-size: 3rem;
+  font-style: italic;
+}
