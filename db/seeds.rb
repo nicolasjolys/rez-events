@@ -119,7 +119,7 @@ puts "event1 creation"
 event1 = Event.create!(
   user: resident1,
   name: "Fête des voisins",
-  public_description: "Fête des voisins de l'avenue de Gaulle",
+  public_description: "Fête des voisins de La Blordière",
   district: "La Blordière",
   address: "Rue Georges Boutin, 44000 Rezé",
   category: "Autre",
@@ -158,7 +158,7 @@ puts "event3 creation"
 
 event3 = Event.create!(
   user: admin1,
-  name: "Réchauffement climatique",
+  name: "Débat sur le réchauffement climatique",
   public_description: "Echange animés par les élus autour des améliorations possible",
   district: "Pont-Rousseau",
   address: "Avenue des treilles, 44000 Rezé",
@@ -197,11 +197,11 @@ event4 = Event.create!(
 
 event5 = Event.create!(
   user: admin1,
-  name: "Réchauffement climatique",
-  public_description: "Echange animés par les élus autour des améliorations possible",
+  name: "Marathon de Rezé",
+  public_description: "Marathon annuel de la ville de Rezé",
   district: "Pont-Rousseau",
-  address: "Rue de la douane, 44000 Rezé",
-  category: "Culture",
+  address: "Pont-Rousseau 44000 Rezé",
+  category: "Sport",
   start_at: Date.today - start_time.days,
   end_at: Date.today - end_time.days,
   contact_first_name: admin1.first_name,
@@ -209,14 +209,14 @@ event5 = Event.create!(
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
-  pricing_description: "Gratuit",
+  pricing_description: "Participation: 7€",
   status: "pending",
   accepted_at: Date.today
 )
 
 event6 = Event.create!(
   user: admin1,
-  name: "Réchauffement climatique",
+  name: "Soirée raclette",
   public_description: "Echange animés par les élus autour des améliorations possible",
   district: "Pont-Rousseau",
   address: "Rue Bessac, 44000 Rezé",
@@ -235,8 +235,8 @@ event6 = Event.create!(
 
 event7 = Event.create!(
   user: admin1,
-  name: "Réchauffement climatique",
-  public_description: "Echange animés par les élus autour des améliorations possible",
+  name: "Bal zumba",
+  public_description: "On dansere jusqu'à l'aube",
   district: "Pont-Rousseau",
   address: "Rue viau, 44000 Rezé",
   category: "Culture",
@@ -254,8 +254,8 @@ event7 = Event.create!(
 
 event8 = Event.create!(
   user: admin1,
-  name: "Réchauffement climatique",
-  public_description: "Echange animés par les élus autour des améliorations possible",
+  name: "Atelier maman et bébé",
+  public_description: "Partage autour de l'accompagnement du nourrisson",
   district: "Pont-Rousseau",
   address: "Rue Viau, 44000 Rezé",
   category: "Petite enfance",
@@ -265,7 +265,7 @@ event8 = Event.create!(
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
-  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit",
   status: "pending",
   accepted_at: Date.today
