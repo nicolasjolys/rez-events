@@ -20,6 +20,7 @@
             </div>
           </div>
         </div>
+        
         <div class="validations d-flex flex-column justify-content-between m-3">
           <%= button_to "Accepter", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success w-100 text-white m-1" %>
           <%= button_to "Refuser", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-decline w-100 m-1" %>
