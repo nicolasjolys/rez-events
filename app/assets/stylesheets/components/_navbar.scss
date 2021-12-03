@@ -1,11 +1,16 @@
 .navbar {
   justify-content: space-between;
   background: $primary-blue;
+  border-bottom: #CD1818 5px solid;
+  outline: #F4E185 5px solid;
   width: 100vw;
   margin: auto;
   .navbar-brand {
     color: $primary-orange;
     font-family: $primary-font;
     font-size: 2.5em;
+  }
+  .navbar-link {
+    color: white;
   }
 }

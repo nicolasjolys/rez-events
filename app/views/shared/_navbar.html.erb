@@ -2,19 +2,19 @@
   <%= link_to "Rez'events", root_path, class: "navbar-brand" %>
 
   <% if user_signed_in? && current_user.city_hall_admin? %>
-    <%= link_to "Evénements à valider", agent_admin_events_path, class: "navbar-dashboard" %>
+    <%= link_to "Evénements à valider", agent_admin_events_path, class: "navbar-link" %>
   <% end %>
 
   <% if user_signed_in? && current_user.role == "city_hall_agent" %>
-    <%= link_to "Evénements à venir", agent_events_path, class: "navbar-dashboard" %>
+    <%= link_to "Evénements à venir", agent_events_path, class: "navbar-link" %>
   <% end %>
 
-  <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-new-event" %>
+  <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-link" %>
 
   <% if user_signed_in? %>
-    <%= link_to "Mes événements", my_events_path, class: "navbar-my-events" %>
-    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "navbar-sign-out" %>
+    <%= link_to "Mes événements", my_events_path, class: "navbar-link" %>
+    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "navbar-link" %>
   <% else %>
-    <%= link_to "Connexion", new_user_session_path, class: "navbar-sign-in" %>
+    <%= link_to "Connexion", new_user_session_path, class: "navbar-link" %>
   <% end %>
 </div>
