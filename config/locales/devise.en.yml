@@ -1,5 +1,9 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
+fr:
+  devise:
+    sessions:
+      signed_in: "Vous êtes connecté."
+      signed_out: "Vous êtes déconnecté."
 en:
   devise:
     confirmations:

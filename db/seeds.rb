@@ -172,6 +172,9 @@ event3 = Event.create!(
   required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
   pricing_description: "Gratuit",
   status: "pending",
+  equipment_requested: true,
+  requested_equipment_description: "12 chaises, et 3 tables rondes, si possible une sonorisation",
+  general_comment: "Merci pour votre travail!",
   accepted_at: Date.today
 )
 
@@ -271,25 +274,4 @@ event8 = Event.create!(
   accepted_at: Date.today
 )
 
-puts "Event participations creation"
-
-puts "event_participation1 creation"
-
-event_participation1 = EventParticipation.create!(
-  user: admin1,
-  event: event2
-)
-
-puts "event_participation2 creation"
-
-event_participation2 = EventParticipation.create!(
-  user: agent1,
-  event: event3
-)
-
-puts "event_participation3 creation"
-
-event_participation3 = EventParticipation.create!(
-  user: agent2,
-  event: event1
-)
+puts "Finished seeding"

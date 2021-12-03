@@ -6,7 +6,7 @@
 
   .info-dates {
     border-bottom-right-radius: 0;
-
+    background-color: #C9D8B6;
   }
 
   &.collapsed {
@@ -102,7 +102,6 @@
   }
   .info-dates {
     width: 9rem;
-    background-color: lightgray;
     border-bottom-right-radius: 1rem;
   }
 }
