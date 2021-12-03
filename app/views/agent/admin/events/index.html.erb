@@ -22,7 +22,7 @@
         </div>
         <div class="validations d-flex flex-column justify-content-between m-3">
           <%= button_to "Accepter", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success w-100 text-white m-1" %>
-          <%= button_to "Refuser", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-warning w-100 m-1" %>
+          <%= button_to "Refuser", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-decline w-100 m-1" %>
         </div>
 
         <div class="info-dates">
@@ -35,16 +35,16 @@
         <div class="card-body d-flex">
           <div class="infos-event">
             <div class="public-comment d-flex">
-              <div class="icone d-flex align-items-center">
+              <div class="icone">
               <i class="fas fa-info-circle fa-2x"></i>
             </div>
-              <div class="public-infos">
+              <div class="public-infos text-left">
                 <p class="bold"><%= event.category %></p>
                 <p><%= event.public_description %></p>
               </div>
             </div>
             <div class="infos-utiles d-flex mb-5">
-              <div class="icone d-flex align-items-center">
+              <div class="icone">
                 <i class="fas fa-euro-sign fa-2x"></i>
               </div>
               <div class="utiles-info ml-5">
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="infos-referent d-flex mb-5">
-              <div class="icone d-flex align-items-center">
+              <div class="icone">
                 <i class="fas fa-address-card fa-2x"></i>
               </div>
               <div class="referent-infos ml-5">
