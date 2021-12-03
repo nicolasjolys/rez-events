@@ -1,10 +1,8 @@
-<div class="title text-center border-bottom mt-2">
-  <h3>Evénements à valider - <span class="event-to-validate"><%= @events.length %></span></h3>
-</div>
+
 
 <div class="container-fluid" id="accordion">
   <% @events.each do |event| %>
-    <div class="card w-75 mx-auto mt-4 <%= category_name_to_border(event.category) %>" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+    <div class="card mx-auto mt-4 <%= category_name_to_border(event.category) %>" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
       <div class="card-header d-flex justify-content-between btn p-4 ">
         <div class="primary-icon text-left <%= category_name_to_color(event.category) %>">
           <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
@@ -15,16 +13,14 @@
             <h4><%= event.name %></h4>
             <h5><%= event.organization_name %></h5>
           </div>
-          <div class="info-localisation mr-5 text-left d-flex">
-            <div class="address w-50">
+          <div class="info-localisation mr-5 text-left">
+            <div class="address w-100">
               <p><i class="fas fa-map-marker-alt mr-1"></i><%= event.address %></p>
-            </div>
-            <div class="district w-50">
-              <p class="ml-5 text-center p-1"><%= event.district %></p>
+              <p class="">Quartier <%= event.district %></p>
             </div>
           </div>
         </div>
-        <div class="validations">
+        <div class="validations d-flex flex-column justify-content-between">
           <%= button_to "Accepter", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success w-100 text-white m-1" %>
           <%= button_to "Refuser", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-warning w-100 m-1" %>
         </div>
