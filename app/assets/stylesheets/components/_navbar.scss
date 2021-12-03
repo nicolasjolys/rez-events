@@ -1,8 +1,11 @@
 .navbar {
   justify-content: space-between;
-  background: $primary-blue;
-  border-bottom: #CD1818 5px solid;
-  outline: #F4E185 5px solid;
+  background: white;
+  border-bottom: #CD1818 1px solid;
+  box-shadow: 0 1px 1px -1px $primary-blue;
+;
+
+  // outline: #F4E185 5px solid;
   width: 100vw;
   margin: auto;
   .navbar-brand {
@@ -11,6 +14,6 @@
     font-size: 2.5em;
   }
   .navbar-link {
-    color: white;
+    color: $primary-blue;
   }
 }
