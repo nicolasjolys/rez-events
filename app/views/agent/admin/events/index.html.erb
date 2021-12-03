@@ -1,5 +1,5 @@
-<div class="title text-center border-bottom mt-2">
-  <h3>Evénements à valider - <span class="event-to-validate"><%= @events.length %></span></h3>
+<div class="title text-center mt-2">
+  <h3>EVENEMENTS A VALIDER - <span class="event-to-validate"><%= @events.length %></span></h3>
 </div>
 
 <div class="container-fluid" id="accordion">
@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="validations d-flex flex-column justify-content-between m-3">
           <%= button_to "Accepter", accept_agent_admin_event_path(event), method: :patch, class: "btn btn-success w-100 text-white m-1" %>
           <%= button_to "Refuser", decline_agent_admin_event_path(event), method: :patch, class: "btn btn-decline w-100 m-1" %>
