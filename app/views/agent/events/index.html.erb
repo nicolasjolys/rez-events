@@ -32,11 +32,11 @@
           <% if event.participants.pluck(:id).include?(current_user.id) %>
             <% evt =  EventParticipation.find_by(user_id: current_user.id, event_id: event.id) %>
             <div class="i-participate-not btn w-100 text-white m-1">
-              <%= button_to "je ne participe plus", agent_event_participation_path(evt.id), method: :delete, class: "btn btn-warning mb-2 w-25" %>
+              <%= button_to "je ne participe plus", agent_event_participation_path(evt.id), method: :delete, class: "btn btn-warning mb-2" %>
             </div>
           <% else %>
             <div class="i-participate w-100 m-1 text-white">
-              <%= button_to "je participe!", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2 w-25" %>
+              <%= button_to "je participe!", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2" %>
             </div>
           <% end %>
         </div>
