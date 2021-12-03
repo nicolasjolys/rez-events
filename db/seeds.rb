@@ -20,7 +20,19 @@ puts "Admin1 creation"
 admin1 = User.create!(
   first_name: "Jeremie",
   last_name: "Sourty",
-  email: "jeremie.sourty@villedereze.com",
+  email: "jeremie@mail.fr",
+  password: "secret",
+  phone_number: "0606060606",
+  role: "city_hall_agent",
+  city_hall_admin: true
+)
+
+puts "Admin2 creation"
+
+admin2 = User.create!(
+  first_name: "Mélia",
+  last_name: "Mazouzi",
+  email: "melia@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "city_hall_agent",
@@ -32,7 +44,7 @@ puts "Agent1 creation"
 agent1 = User.create!(
   first_name: "Jean",
   last_name: "Dupont",
-  email: "jean.dupont@villedereze.com",
+  email: "dupont@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "city_hall_agent",
@@ -44,7 +56,7 @@ puts "Agent2 creation"
 agent2 = User.create!(
   first_name: "Marie",
   last_name: "durant",
-  email: "marie.durant@villedereze.com",
+  email: "marie@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "city_hall_agent",
@@ -56,7 +68,7 @@ puts "Agent3 creation"
 agent3 = User.create!(
   first_name: "Jeanne",
   last_name: "Moreau",
-  email: "jeanne.moreau@villedereze.com",
+  email: "jeanne@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "city_hall_agent",
@@ -68,7 +80,7 @@ puts "Resident1 creation"
 resident1 = User.create!(
   first_name: "Louis",
   last_name: "Dumas",
-  email: "louloudumas@loumail.com",
+  email: "louis@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "resident"
@@ -79,7 +91,7 @@ puts "Resident2 creation"
 resident2 = User.create!(
   first_name: "Laura",
   last_name: "Pinot",
-  email: "laurapinot@loumail.com",
+  email: "laura@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "resident"
@@ -91,7 +103,7 @@ organization1 = User.create!(
   first_name: "Edgar",
   last_name: "Azerty",
   main_organization_name: "L'asso des rezéens",
-  email: "rezeens@asso.com",
+  email: "edgar@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "organization"
@@ -103,7 +115,7 @@ organization2 = User.create!(
   first_name: "Philippe",
   last_name: "Blanc",
   main_organization_name: "Club de foot de Rezé",
-  email: "foot4all@asso.com",
+  email: "blanc@mail.fr",
   password: "secret",
   phone_number: "0606060606",
   role: "organization"
@@ -130,7 +142,10 @@ event1 = Event.create!(
   contact_email: resident1.email,
   contact_phone_number: resident1.phone_number,
   required_safety_level: "Niveau 1 - Manifestation de moins de 1500 personnes",
-  pricing_description: "Ramenez un gateau ou une quiche",
+  pricing_description: "Gratuit, pensez à ramener un plat à partager",
+  equipment_requested: true,
+  requested_equipment_description: "6 tables, et 40 chaises, si possible une sonorisation",
+  general_comment: "Comme tous les ans, merci à la mairie de nous permettre de partager ce moment de convivialité",
   status: "pending"
 )
 
@@ -138,8 +153,8 @@ puts "event2 creation"
 
 event2 = Event.create!(
   user: organization2,
-  name: "Match de foot",
-  public_description: "Demi finale de la coupe de Loire-Atlantique",
+  name: "Match de football",
+  public_description: "Finale départementale",
   district: "Château La Houssais",
   address: "Avenue de la Houssais, 44000 Rezé",
   category: "Sport",
@@ -149,8 +164,10 @@ event2 = Event.create!(
   contact_last_name: organization2.last_name,
   contact_email: organization2.email,
   contact_phone_number: organization2.phone_number,
-  required_safety_level: 'Niveau 2 - Manifestation entre 1500 et 5000 personnes',
-  pricing_description: "Gratuit, buvette payante",
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
+  pricing_description: "Accès au stade gratuit, buvette payante",
+  equipment_requested: true,
+  requested_equipment_description: "Un podium pour la remise des prix",
   status: "pending"
 )
 
@@ -159,7 +176,7 @@ puts "event3 creation"
 event3 = Event.create!(
   user: admin1,
   name: "Débat sur le réchauffement climatique",
-  public_description: "Echange animés par les élus autour des améliorations possible",
+  public_description: "Echange animé par les élus autour des améliorations possible",
   district: "Pont-Rousseau",
   address: "Avenue des treilles, 44000 Rezé",
   category: "Developpement durable",
@@ -169,13 +186,11 @@ event3 = Event.create!(
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
-  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit",
   status: "pending",
   equipment_requested: true,
-  requested_equipment_description: "12 chaises, et 3 tables rondes, si possible une sonorisation",
-  general_comment: "Merci pour votre travail!",
-  accepted_at: Date.today
+  requested_equipment_description: "Un barnum, 5 tables et 18 chaises"
 )
 
 puts "event4 creation"
@@ -212,15 +227,17 @@ event5 = Event.create!(
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
-  pricing_description: "Participation: 7€",
+  pricing_description: "Coureurs : 25€ le dossard",
   status: "pending",
-  accepted_at: Date.today
+  equipment_requested: true,
+  requested_equipment_description: "Barrières de sécurité, podium, barnums, tables et chaises",
+  general_comment: "Merci de faire le point en interne sur le matériel nécessaire"
 )
 
 event6 = Event.create!(
   user: admin1,
-  name: "Soirée raclette",
-  public_description: "Echange animés par les élus autour des améliorations possible",
+  name: "Distribution de repas",
+  public_description: "Distribution de repas chauds pour les plus démunis",
   district: "Pont-Rousseau",
   address: "Rue Bessac, 44000 Rezé",
   category: "Solidarité",
@@ -230,7 +247,7 @@ event6 = Event.create!(
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
-  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit",
   status: "pending",
   accepted_at: Date.today
@@ -238,8 +255,8 @@ event6 = Event.create!(
 
 event7 = Event.create!(
   user: admin1,
-  name: "Bal zumba",
-  public_description: "On dansere jusqu'à l'aube",
+  name: "Bal d'hiber zumba",
+  public_description: "Venez danser jusqu'au bout de la nuit!",
   district: "Pont-Rousseau",
   address: "Rue viau, 44000 Rezé",
   category: "Culture",
@@ -249,8 +266,8 @@ event7 = Event.create!(
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
-  required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
-  pricing_description: "Gratuit",
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
+  pricing_description: "5€ l'entrée",
   status: "pending",
   accepted_at: Date.today
 )
