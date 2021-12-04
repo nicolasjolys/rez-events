@@ -5,11 +5,11 @@ class MyEventsController < ApplicationController
     @my_event = @user.events
   end
 
-  # def new
-  #   @event = Event.new
-  #   @user = current_user
-  #   @event.user = @user
-  # end
+  def new
+    @event = Event.new
+    @user = current_user
+    @event.user = @user
+  end
 
   # def create
   #   @event = Event.new(event_params)
