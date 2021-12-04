@@ -2,11 +2,13 @@
   <%= link_to "Rez'events", root_path, class: "navbar-brand" %>
 
   <% if user_signed_in? && current_user.city_hall_admin? %>
-    <%= link_to "Evénements à valider", agent_admin_events_path, class: "navbar-link" %>
+    <% pending_events =  Event.where(:status => 'pending').count %>
+    <%= link_to "Evénements à valider (#{pending_events})", agent_admin_events_path, class: "navbar-link" %>
   <% end %>
 
   <% if user_signed_in? && current_user.role == "city_hall_agent" %>
-    <%= link_to "Evénements à venir", agent_events_path, class: "navbar-link" %>
+    <% upcoming_events =  Event.where(:status => 'accepted').count %>
+    <%= link_to "Evénements à venir (#{upcoming_events})", agent_events_path, class: "navbar-link" %>
   <% end %>
 
   <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-link" %>
