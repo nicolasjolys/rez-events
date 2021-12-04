@@ -1,0 +1,20 @@
+.accepted {
+  background-color: rgb(113, 255, 113);
+
+}
+
+.pending {
+  background-color: orange;
+}
+
+.declined {
+  background-color: rgb(238, 79, 79);
+
+}
+
+.status {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-bottom: 1px solid black;
+}

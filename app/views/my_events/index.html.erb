@@ -1,0 +1,46 @@
+
+
+<div class="home-container container">
+  <div class="row">
+    <div class="col-8">
+<div class="container-fluid" id="accordion">
+  <% @events.each do |event| %>
+  <%=  event.user.first_name %>
+
+    <div class="card mx-auto mt-4" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+      <div class="card-header d-flex justify-content-between align-items-center btn p-0">
+        <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
+          <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
+        </div>
+
+        <div class="info-event-header d-flex flex-column">
+          <div class="info-header text-left p-3">
+            <h4 class="bold"><%= event.name %></h4>
+            <h5><%= event.organization_name %></h5>
+          </div>
+          <div class="info-localisation mr-5 text-left">
+            <div class="address d-flex justify-content-between align-items-center mx-3 pb-2">
+              <p class="mb-0"><i class="fas fa-map-marker-alt mr-1"></i><%= event.address %></p>
+              <p class="mb-0 p-1 text-center district">Quartier <%= event.district %></p>
+              <% if event.status == "declined" %>
+                <div class="status declined "> status </div>
+              <% elsif event.status == "accepted" %>
+                <div class="status accepted "> status </div>
+              <% else %>
+                <div class="status pending"> status </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="info-dates">
+                     <%= l(event.start_at, format: "%^a") %><br>
+             <%= l(event.start_at, format: "%e") %><br>
+             <%= l(event.start_at, format: "%^b") %><br>
+             <%= l(event.start_at, format: "%HH%M") %><br>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
