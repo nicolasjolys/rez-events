@@ -135,7 +135,7 @@ event1 = Event.create!(
   district: "La Blordière",
   address: "Rue Georges Boutin, 44000 Rezé",
   category: "Autre",
-  start_at: Date.today  start_time.days,
+  start_at: Date.today - start_time.days,
   end_at: Date.today - end_time.days,
   contact_first_name: resident1.first_name,
   contact_last_name: resident1.last_name,
