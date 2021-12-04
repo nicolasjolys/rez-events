@@ -1,4 +1,26 @@
-<h2>Create a new event</h2>
+<%# <div class="log-container-box"> %>
+  <div class="log-container">
+  <%= simple_form_for @event do |f| %>
+    <%= f.input :name, label: "Nom de l'évènement", error: 'Username is mandatory, please specify one' %>
+    <%= f.input :address, label: "Adresse de l'évènement" %>
+    <%= f.input :district, label: "Quartier", collection: @DISTRICTS %>
+    <%= f.input :start_at, label: "Date de début"%>
+    <%= f.input :end_at, label: "Date de fin"%>
+    <%= f.input :pricing_description, label: "Tarification"%>
+    <%= f.input :public_description, label: "description publique"%>
 
+    <%= f.input :category, label: "Type d'évènement", collection: @CATEGORIES%>
+    <%= f.input :required_safety_level, label: "Niveau de sécuriter requis", collection: @SAFETY_LEVELS%>
+    <%= f.input :requested_equipment_description, label: "Besoin de soutient logistique?"%>
+    <%= f.input :general_comment, label: "Commentaires"%>
 
-<%= @user.first_name %>
+    <%= f.input :organization_name, label: "Structure organisatrice"%>
+    <%= f.input :contact_last_name, label: "Nom du référent"%>
+    <%= f.input :contact_first_name, label: "Prénom du référent"%>
+    <%= f.input :contact_email, label: "Email du référent" %>
+    <%= f.input :contact_phone_number, label: "Téléphone du référent" %>
+
+    <%= f.button :submit, "suivant", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+<%# </div> %>

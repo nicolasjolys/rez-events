@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get '/my_events/new', to: 'my_events#new', as: 'events'
+  post '/my_events/new', to: 'my_events#create'
+
   resources :events, only: [:show]
 
   resources :my_events, except: [:show, :destroy] do

@@ -8,6 +8,6 @@ class Agent::EventsControllerTest < ActionDispatch::IntegrationTest
 
 
   def index
-    @events = Event.all
+    @events = Event.all.sort_by(&:id).reverse
   end
 end
