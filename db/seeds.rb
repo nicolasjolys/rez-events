@@ -255,7 +255,7 @@ event6 = Event.create!(
 
 event7 = Event.create!(
   user: admin1,
-  name: "Bal d'hiber zumba",
+  name: "Bal d'hiver zumba",
   public_description: "Venez danser jusqu'au bout de la nuit!",
   district: "Pont-Rousseau",
   address: "Rue viau, 44000 Rezé",
