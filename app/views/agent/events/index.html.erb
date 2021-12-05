@@ -4,13 +4,13 @@
 
 <div class="container-fluid" id="accordion">
   <% @events.each do |event| %>
-    <div class="card mx-auto mt-4" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+    <div class="card mx-auto mt-4" >
       <div class="card-header d-flex justify-content-between align-items-center btn p-0">
         <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
           <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
         </div>
 
-        <div class="info-event-header d-flex flex-column">
+        <div class="info-event-header d-flex flex-column" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
           <div class="info-header text-left p-3">
             <h4 class="bold"><%= event.name %></h4>
             <h5><%= event.organization_name %></h5>
@@ -18,38 +18,37 @@
           <div class="info-localisation mr-5 text-left">
             <div class="address d-flex justify-content-between align-items-center mx-3 pb-2">
               <p class="mb-0"><i class="fas fa-map-marker-alt mr-1"></i><%= event.address %></p>
-              <p class="mb-0 p-1 text-center district">Quartier <%= event.district %></p>
+              <p class="mb-0 p-1 text-center">Quartier <%= event.district %></p>
             </div>
           </div>
+          <i class="fas fa-chevron-down text-center"></i>
         </div>
 
-
-
-        <div class="d-flex flex-column justify-content-between m-3">
-            <div class="event-participants">
+        <div class="d-flex flex-column justify-content-between">
+            <div class="event-participants p-2">
               <%= event.participants.count %> participant(s)
             </div>
           <% if event.participants.pluck(:id).include?(current_user.id) %>
             <% evt =  EventParticipation.find_by(user_id: current_user.id, event_id: event.id) %>
-            <div class="i-participate-not btn w-100 text-white m-1">
-              <%= button_to "je ne participe plus", agent_event_participation_path(evt.id), method: :delete, class: "btn btn-warning mb-2" %>
+            <div class="i-participate-not btn w-100 text-white p-2">
+              <%= button_to "Je ne participe plus", agent_event_participation_path(evt.id), method: :delete, class: "btn btn-warning mb-2" %>
             </div>
           <% else %>
-            <div class="i-participate w-100 m-1 text-white">
+            <div class="i-participate w-100 text-white p-2">
               <%= button_to "je participe!", agent_event_event_participations_path(event), method: :post, class: "btn btn-success mb-2" %>
             </div>
           <% end %>
         </div>
 
-        <div class="info-dates">
+        <div class="info-dates d-flex">
           <p class="m-3"><%= event.start_at.strftime("%d/%m/%Y") %></p>
           <p class="m-3"><%= event.end_at.strftime("%d/%m/%Y") %></p>
         </div>
       </div>
 
       <div id="collapse<%= event.id%>" class="collapse" aria-labelledby="heading<%= event.id%>" data-parent="#accordion">
-        <div class="card-body d-flex w-100 justify-content-between">
-          <div class="d-flex left-infos-collapsed">
+        <div class="card-body d-flex justify-content-between">
+          <div class="d-flex collapse-all">
             <div class="infos-event">
               <div class="public-comment d-flex">
                 <div class="icone <%= category_name_to_color(event.category) %>">
@@ -86,14 +85,14 @@
               <div class="infos-matos mt-4">
                 <% if event.equipment_requested? %>
                   <h6>Demande de matériel</h6>
-                  <p><%= event.requested_equipment_description %></p>
+                  <p class="border p-3"><%= event.requested_equipment_description %></p>
                 <% else %>
                   <h6>Pas de demande de matériel</h6>
                 <% end %>
               </div>
               <div class="remarques mt-4">
                 <h6>Commentaires</h6>
-                <p><%= event.general_comment %></p>
+                <p class="border p-3"><%= event.general_comment %></p>
               </div>
             </div>
           </div>
