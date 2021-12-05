@@ -33,3 +33,13 @@ h1 {
   font-size: 3rem;
   font-style: italic;
 }
+
+.preventstyle {
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
