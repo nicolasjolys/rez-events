@@ -8,7 +8,7 @@
 <div class="home-container container">
   <div class="row">
     <div class="col-8">
-      <div class="container-fluid" id="accordion">
+      <div class="container-fluid preventstyle" id="accordion">
         <% @events.each do |event| %>
           <%= link_to event_path(event.id) do %>
             <div class="card mx-auto mt-4" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
