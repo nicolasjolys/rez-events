@@ -156,7 +156,7 @@ event2 = Event.create!(
   name: "Match de football",
   public_description: "Finale départementale",
   district: "Château La Houssais",
-  address: "Avenue de la Houssais, 44000 Rezé",
+  address: "Stade léo lagrange, rezé",
   category: "Sport",
   start_at: Date.today - start_time.days,
   end_at: Date.today - end_time.days,
