@@ -1,8 +1,10 @@
 .card {
   border: none;
+  border-radius: 10px;
   width: 70rem;
 
   .card-header {
+    border-radius: 10px;
     border: none;
     background-color: white;
     height: 8rem;
@@ -14,8 +16,11 @@
       display: grid;
     }
 
+    .validations {
+      width: 8rem;
+    }
     .info-event-header {
-      width: 60%;
+      width: 46rem;
 
       .bold {
         font-weight: bold;
@@ -45,18 +50,29 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      border-radius: 0 10px 10px 0 ;
     }
   }
 
   .card-body {
+    padding: 0;
+    width: 70rem;
 
     .icone {
       height: 100%;
       width: 4rem;
+      place-content: center;
+      display: grid;
+    }
+
+    .collapse-all {
+      width: 62rem;
     }
 
     .infos-event, .logistique {
       padding-top: 2em;
+      width: 29rem;
+
     }
 
     .secondary-info {
@@ -73,12 +89,22 @@
       background-color: lightgray;
       border-radius: 10px 10px 0 0;
       padding: 1em;
+      margin-bottom: 0;
     }
 
     .remarques h6 {
       background-color: lightgray;
       border-radius: 10px 10px 0 0;
       padding: 1em;
+      margin-bottom: 0;
     }
   }
+}
+
+.card-body {
+  .info-dates {
+      width: 8rem;
+      background-color: #C9D8B6;
+      height: 100vh;
+    }
 }
