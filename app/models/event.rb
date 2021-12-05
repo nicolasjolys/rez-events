@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :event_participations
   has_many :participants, through: :event_participations, source: :user
+  has_one_attached :photo
 
   validates :name,
             :public_description,

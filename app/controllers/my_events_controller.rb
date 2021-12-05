@@ -53,6 +53,7 @@ class MyEventsController < ApplicationController
       :contact_first_name,
       :contact_email,
       :contact_phone_number,
+      :photo
     )
   end
 end
