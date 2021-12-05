@@ -1,0 +1,25 @@
+
+
+<%= @event.name %><br>
+<%= @event.address %><br>
+<%= @event.start_at %><br>
+<%= @event.end_at %><br>
+<%= @event.pricing_description %><br>
+<%= @event.public_description %><br>
+<%= @event.category %><br>
+<%= @event.organization_name %><br>
+
+
+<div class="info-dates">
+  <%= l(@event.start_at, format: "%^a") %><br>
+  <%= l(@event.start_at, format: "%e") %><br>
+  <%= l(@event.start_at, format: "%^b") %><br>
+  <%= l(@event.start_at, format: "%HH%M") %><br>
+</div>
+
+<div class="info-dates">
+  <%= l(@event.end_at, format: "%^a") %><br>
+  <%= l(@event.end_at, format: "%e") %><br>
+  <%= l(@event.end_at, format: "%^b") %><br>
+  <%= l(@event.end_at, format: "%HH%M") %><br>
+</div>

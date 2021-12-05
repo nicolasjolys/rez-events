@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [ :show ]
+
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR public_description ILIKE :query"
@@ -6,6 +9,10 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
