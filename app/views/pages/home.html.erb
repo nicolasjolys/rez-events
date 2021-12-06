@@ -11,7 +11,7 @@
       <div class="container-fluid preventstyle" id="accordion">
         <% @events.each do |event| %>
           <%= link_to event_path(event.id) do %>
-            <div class="card mx-auto mt-4" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+            <div class="card card-home mx-auto mt-4" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
               <div class="card-header d-flex justify-content-between align-items-center btn p-0">
                 <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
                   <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>

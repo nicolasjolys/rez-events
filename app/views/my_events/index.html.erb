@@ -28,17 +28,17 @@
                     <% end %>
                   </div>
                 </div>
-        </div>
-          <%= link_to "Editer", edit_my_event_path(event) %>
-          <%= link_to "Annuler", cancel_my_event_path(event), method: :patch %>
+              </div>
+              <%= link_to "Editer", edit_my_event_path(event) %>
+              <%= link_to "Annuler", cancel_my_event_path(event), method: :patch %>
 
-        <div class="info-dates">
-              <%= l(event.start_at, format: "%^a") %><br>
-             <%= l(event.start_at, format: "%e") %><br>
-             <%= l(event.start_at, format: "%^b") %><br>
-             <%= l(event.start_at, format: "%HH%M") %><br>
-        </div>
+              <div class="info-dates">
+                <%= l(event.start_at, format: "%^a") %><br>
+                <%= l(event.start_at, format: "%e") %><br>
+                <%= l(event.start_at, format: "%^b") %><br>
+                <%= l(event.start_at, format: "%HH%M") %><br>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </div>
-  <% end %>
-</div>

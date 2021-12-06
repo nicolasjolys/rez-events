@@ -1,7 +1,7 @@
 .card {
   border: none;
   border-radius: 10px;
-  width: 100%;
+  width: 70rem;
   padding-right: 0;
 
   .card-header {
@@ -18,10 +18,10 @@
     }
 
     .validations {
-      width: 8rem;
+      width: 10rem;
     }
     .info-event-header {
-      width: 46rem;
+      width: 44rem;
 
       .bold {
         font-weight: bold;
@@ -37,11 +37,59 @@
     }
     .address {
       font-size: 0.8em;
+      .fa-map-marker-alt {
+        color: #7979DE;
+      }
+      .district {
+        background-color: #7979DE;
+        border-radius: 15px;
+        color: white;
+        padding: 3px 15px;
+      }
+    }
+    .participants {
+      background-color: #7979DE;
+      border-radius: 10px;
+      width: 5rem;
+      .fa-users {
+        color: white;
+      }
     }
 
+    .i-not-participate {
+      background-color: #94BF1A;
+      border-radius: 10px;
+      padding: 5px 10px;
+      color: black;
+      width: 9rem;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+
+    .i-participate {
+      border: #94BF1A 2px solid;
+      border-radius: 10px;
+      padding: 5px 10px;
+      width: 9rem;
+      a {
+        text-decoration: none;
+        color: #94BF1A;
+      }
+    }
+
+
+
     .btn-decline {
-      background-color: #DDD;
+      background-color: #EB5353;
       color: white;
+      border-radius: 10px;
+    }
+
+    .btn-accept {
+      background-color: #94BF1A;
+      border-radius: 10px;
     }
 
     .info-dates {
@@ -61,9 +109,33 @@
 
     .icone {
       height: 100%;
+      color: #7979DE;
       width: 4rem;
       place-content: center;
       display: grid;
+    }
+
+    .category {
+      color: #7979DE;
+    }
+    .fa-euro-sign {
+      color: #7979DE;
+      opacity: 0.7;
+    }
+
+    .utiles-info h6 {
+      color: #7979DE;
+      opacity: 0.7;
+    }
+
+    .fa-address-card {
+      color: #7979DE;
+      opacity: 0.4;
+    }
+
+    .referent-name, .referent-num {
+      color: #7979DE;
+      opacity: 0.5;
     }
 
     .collapse-all {
@@ -73,7 +145,6 @@
     .infos-event, .logistique {
       padding-top: 2em;
       width: 29rem;
-
     }
 
     .secondary-info {
@@ -81,23 +152,31 @@
     }
 
     .infos-securite {
-      background-color: lightgray;
       border-radius: 10px;
       padding: 0.8em;
+      box-shadow: 1px 3px 1px lightgray;
+      p {
+        color: #EB5353;
+      }
     }
 
     .infos-matos h6{
-      background-color: lightgray;
+      background-color: #CADF8D;;
       border-radius: 10px 10px 0 0;
       padding: 1em;
       margin-bottom: 0;
     }
 
     .remarques h6 {
-      background-color: lightgray;
+      background-color: #CADF8D;;
       border-radius: 10px 10px 0 0;
       padding: 1em;
       margin-bottom: 0;
+    }
+
+    .text-infos {
+      border: lightgray 1px solid;
+      border-radius: 0 0 10px 10px;
     }
   }
 }
@@ -109,8 +188,9 @@
       background-color: #94BF1A;
       height: auto;
       border-bottom-right-radius: 10px;
-
     }
+}
 
-
+.card-home {
+  width: 100%;
 }
