@@ -30,10 +30,17 @@ class MyEventsController < ApplicationController
     render :edit
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.status = "pending"
+    @event.update(event_params)
+
+    redirect_to my_events_path
+  end
+
   def cancel
     @event = Event.find(params[:id])
-    @event.status = "canceled"
-    @event.save
+    @event.update(status: "canceled")
 
     redirect_to my_events_path
   end
@@ -49,12 +56,10 @@ class MyEventsController < ApplicationController
       :end_at,
       :pricing_description,
       :public_description,
-
       :category,
       :required_safety_level,
       :requested_equipment_description,
       :general_comment,
-
       :organization_name,
       :contact_last_name,
       :contact_first_name,

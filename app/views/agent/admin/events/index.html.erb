@@ -2,7 +2,7 @@
   <h3>EVENEMENTS A VALIDER - <span class="event-to-validate"><%= @events.length %></span></h3>
 </div>
 
-<div class="container-fluid" id="accordion">
+<div class="container-fluid mb-5" id="accordion">
   <% @events.each do |event| %>
     <div class="card mx-auto mt-4" >
       <div class="card-header d-flex justify-content-between align-items-center btn p-0">
@@ -16,8 +16,9 @@
             <h5><%= event.organization_name %></h5>
           </div>
           <div class="info-localisation mr-5 text-left">
-            <div class="address d-flex justify-content-between align-items-center mx-3 pb-2">
-              <p class="mb-0"><i class="fas fa-map-marker-alt mr-1"></i><%= event.address %></p>
+            <div class="address d-flex align-items-center mx-3 pb-2">
+              <i class="fas fa-map-marker-alt fa-lg mb-0 mr-1"></i>
+              <p class="m-0 mr-4 clear-text"><%= event.address %></p>
               <p class="mb-0 district"><%= event.district %></p>
             </div>
           </div>
@@ -53,7 +54,7 @@
                   <i class="fas fa-euro-sign fa-2x"></i>
                 </div>
                 <div class="utiles-info">
-                  <h6 utiles-infos>Infos utiles</h6>
+                  <h6 utiles-infos>Tarif</h6>
                   <p><%= event.pricing_description %></p>
                 </div>
               </div>

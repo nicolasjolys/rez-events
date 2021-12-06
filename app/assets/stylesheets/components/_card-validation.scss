@@ -40,11 +40,14 @@
       .fa-map-marker-alt {
         color: #7979DE;
       }
+      .clear-text {
+        opacity: .5;
+      }
       .district {
         background-color: #7979DE;
         border-radius: 15px;
         color: white;
-        padding: 3px 15px;
+        padding: 3px 20px;
       }
     }
     .participants {
@@ -58,6 +61,7 @@
 
     .i-not-participate {
       background-color: #94BF1A;
+      border: #94BF1A 2px solid;
       border-radius: 10px;
       padding: 5px 10px;
       color: black;
@@ -77,6 +81,14 @@
         text-decoration: none;
         color: #94BF1A;
       }
+    }
+
+    .fa-window-close {
+      color: #EB5353;
+    }
+
+    .fa-pen-square {
+      color: #94BF1A;
     }
 
 
@@ -140,11 +152,14 @@
 
     .collapse-all {
       width: 62rem;
+      flex-grow: 1;
+      padding: 1rem;
     }
 
     .infos-event, .logistique {
       padding-top: 2em;
       width: 29rem;
+      flex-grow: 1;
     }
 
     .secondary-info {
@@ -193,4 +208,43 @@
 
 .card-home {
   width: 100%;
+}
+
+.accepted {
+  color: #94BF1A;
+  border-radius: 50%;
+  text-shadow: #94BF1A 1px 0 10px;
+
+}
+
+.canceled {
+  color: lightgray;
+  border-radius: 50%;
+
+}
+
+.declined {
+  color: #EB5353;
+  border-radius: 50%;
+  text-shadow: #EB5353 1px 0 10px;
+}
+
+.pending {
+  color: orange;
+  border-radius: 50%;
+  text-shadow: orange 1px 0 10px;
+}
+.edit-status {
+  height: 8rem;
+}
+
+.status-event {
+  p {
+    margin: 0;
+    font-size: 0.7rem;
+    padding-right: 1em;
+  }
+  i {
+    height: 12px
+  }
 }
