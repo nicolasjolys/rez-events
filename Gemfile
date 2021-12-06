@@ -35,6 +35,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'rails-i18n', '6.0.0'
 gem 'geocoder'
+gem 'cloudinary', '~> 1.16.0'
 
 
 
