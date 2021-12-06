@@ -30,7 +30,13 @@ class MyEventsController < ApplicationController
     render :edit
   end
 
+  def cancel
+    @event = Event.find(params[:id])
+    @event.status = "canceled"
+    @event.save
 
+    redirect_to my_events_path
+  end
 
   private
 
