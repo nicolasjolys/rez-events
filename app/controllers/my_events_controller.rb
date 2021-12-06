@@ -1,8 +1,7 @@
 class MyEventsController < ApplicationController
-
   def index
     @user = current_user
-    @my_event = @user.events
+    @events = @user.events.sort_by(&:id).reverse
   end
 
   def new
@@ -26,10 +25,12 @@ class MyEventsController < ApplicationController
     end
   end
 
-  def index
-    @user = current_user
-    @events = @user.events.sort_by(&:id).reverse
+  def edit
+    @event = Event.find(params[:id])
+    render :edit
   end
+
+
 
   private
 
