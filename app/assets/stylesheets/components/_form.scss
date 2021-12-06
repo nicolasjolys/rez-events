@@ -1,0 +1,229 @@
+.form-page {
+}
+
+
+
+.form-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: black;
+  width: 50vw;
+  margin: 30px;
+  background-color: rgba(255,255,255,0.9);
+  padding: 30px;
+}
+
+.form-container-category {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: black;
+  width: 50vw;
+  margin: 30px;
+  background-color: rgba(195,195,195,0.8);
+  padding: 30px;
+}
+
+.form-container-box {
+  background-image: url('stage.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  h3 {
+    text-align: center;
+    color: white;
+  }
+}
+
+.input-classic {
+  width: 30rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.category-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 30px;
+}
+
+.category-item {
+  font-weight: bolder;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  color: white !important;
+  font-weight: bold;
+  height: 100px;
+  width: 100px;
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 140px;
+  width: 140px;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid $primary-blue;
+  border-radius: 4px;
+  border-radius: 12px;
+  padding: 10px;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  background-color: white;
+  mask-position: center;
+  mask-size: 80px;
+  mask-border-width: 1px;
+  mask-repeat: no-repeat;
+
+
+}
+
+.category-selector + label:hover {
+  color: white !important;
+  font-weight: bold;
+  height: 100px;
+  width: 100px;
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 140px;
+  width: 140px;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid $primary-blue;
+  border-radius: 4px;
+  border-radius: 12px;
+  padding: 10px;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: center;
+  background-color: lightgrey;
+  mask-position: center;
+  mask-size: 80px;
+  mask-border-width: 2px;
+
+
+}
+
+.category-selector:checked + label {
+  color: white !important;
+  border: 2px solid $primary-blue;
+}
+
+
+#event_category_culture + label {
+  -webkit-mask-image: url('Culture.svg');
+  mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent);
+mask-image: image(url('Sport.svg'), skyblue);
+  color: $culture;
+  font-weight: bold;
+}
+#event_category_culture:checked + label {
+  background-color: $culture;
+}
+
+#event_category_sport + label {
+  color: $sport;
+  -webkit-mask-image: url('Sport.svg');
+}
+
+#event_category_sport:checked + label {
+  background-color: $sport;
+}
+
+#event_category_education-jeunesse + label {
+  -webkit-mask-image: url('Education-Jeunesse.svg');
+}
+
+#event_category_education-jeunesse:checked + label {
+  background-color: $education-jeunesse;
+}
+
+#event_category_developpement_durable + label {
+  -webkit-mask-image: url('Developpement durable.svg');
+
+}
+
+#event_category_developpement_durable:checked + label {
+  background-color: $dev-durable;
+}
+
+#event_category_solidarité + label {
+    -webkit-mask-image: url('Solidarité.svg');
+
+
+}
+
+#event_category_solidarité:checked + label {
+  background-color: $solidarite;
+}
+
+#event_category_santé + label {
+    -webkit-mask-image: url('Santé.svg');
+
+
+}
+
+#event_category_santé:checked + label {
+  background-color: $sante;
+}
+
+#event_category_petite_enfance + label {
+    -webkit-mask-image: url('Petite enfance.svg');
+
+}
+
+#event_category_petite_enfance:checked + label {
+  background-color: $petite-enfance;
+}
+
+#event_category_dialogue_citoyen + label {
+    -webkit-mask-image: url('Dialogue citoyen.svg');
+
+
+}
+#event_category_dialogue_citoyen:checked + label {
+  background-color: $dialogue-citoyen;
+}
+
+#event_category_commémoration + label {
+  -webkit-mask-image: url('Developpement durable.svg');
+
+
+}
+#event_category_commémoration:checked + label {
+  background-color: $commemoration;
+}
+
+#event_category_autre + label {
+  -webkit-mask-image: url('Autre.svg');
+  grid-column-start: 2;
+}
+#event_category_autre:checked + label {
+  grid-column-start: 2;
+  background-color: $autre;
+}

@@ -6,7 +6,7 @@ class MyEventsController < ApplicationController
 
   def new
     @user = current_user
-    @event = Event.new(contact_email: @user.email, contact_last_name: @user.last_name, contact_first_name: @user.first_name, contact_phone_number: @user.phone_number )
+    @event = Event.new(required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes', contact_email: @user.email, contact_last_name: @user.last_name, contact_first_name: @user.first_name, contact_phone_number: @user.phone_number, category: 'Autre' )
     @event.user = @user
     @DISTRICTS = ['La Blordière', 'Château La Houssais', 'Pont-Rousseau', 'Ragon', 'Hôtel de ville', 'Trentemoult-les Isles']
     @CATEGORIES = ['Culture', 'Sport', 'Education-Jeunesse', 'Developpement durable', 'Solidarité', 'Santé', 'Petite enfance', 'Dialogue citoyen', 'Commémoration', 'Autre']
