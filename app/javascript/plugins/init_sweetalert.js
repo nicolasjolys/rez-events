@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2'
-import Rails from "@rails/ujs"
 
 const alertBtnAccepted = () => {
   const acceptEvent = document.querySelectorAll(".accept-btn")
@@ -9,9 +8,9 @@ const alertBtnAccepted = () => {
       e.preventDefault();
       Swal.fire({
         icon: 'success',
-        title: 'Evénement validé!',
+        title: 'Evénement accepté!',
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       }).then((result) => {
         if (result.isDismissed) {
           form.submit()
@@ -40,7 +39,6 @@ const alertBtnDeclined = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           const input = form.querySelector('.decline-btn input[name="declined_explanation"]')
-          console.log(form)
           input.value = result.value
           form.submit()
           // Rails.ajax({
@@ -64,33 +62,36 @@ const alertBtnEdit = () => {
         title: 'Voulez-vous confirmer vos modifications?',
         showCancelButton: true,
         confirmButtonText: 'Valider mes modifications'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          form.submit();
+        }
       })
     })
   }
 }
 
-const alertBtnCancel = () => {
-  const cancelEvents = document.querySelectorAll('.fa-window-close')
-  const cancelEventBtn = document.querySelector('.cancel_event')
-  console.log(cancelEvents)
-  cancelEvents.forEach((cancelEvent) => {
-    cancelEvent.addEventListener('click', (e) => {
-      e.preventDefault();
-      Swal.fire({
-          icon: 'warning',
-          title: 'Voulez-vous confirmer vos modifications?',
-          showCancelButton: true,
-          confirmButtonText: 'Valider mes modifications'
-      }).then((result) => {
-        console.log(result)
-      })
-    })
-  })
-}
+// const alertBtnCancel = () => {
+//   const cancelEvents = document.querySelectorAll('.cancel-event')
+//   cancelEvents.forEach((cancelEvent) => {
+//     cancelEvent.addEventListener('click', (e) => {
+//       e.preventDefault();
+//       Swal.fire({
+//           icon: 'warning',
+//           title: 'Voulez-vous confirmer vos modifications?',
+//           showCancelButton: true,
+//           confirmButtonText: 'Valider mes modifications',
+//           timer: 3000
+//       }).then((result) => {
+//         console.log(result)
+//       })
+//     })
+//   })
+// }
 
 export const initSweetAlert = () => {
   alertBtnDeclined();
   alertBtnAccepted();
   alertBtnEdit();
-  alertBtnCancel();
+  // alertBtnCancel();
 }
