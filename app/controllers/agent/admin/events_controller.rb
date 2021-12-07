@@ -6,6 +6,7 @@ class Agent::Admin::EventsController < ApplicationController
   def decline
     @event = Event.find(params[:id])
     @event.status = "declined"
+    @event.declined_at = Time.now
     @event.save
 
     redirect_to agent_admin_events_path
@@ -14,6 +15,7 @@ class Agent::Admin::EventsController < ApplicationController
   def accept
     @event = Event.find(params[:id])
     @event.status = "accepted"
+    @event.accepted_at = Time.now
     @event.save
 
     redirect_to agent_admin_events_path
