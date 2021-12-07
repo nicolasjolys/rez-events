@@ -1,4 +1,4 @@
-<div class="form-container-box">
+<div class="form-container-global">
   <%= simple_form_for @event do |f| %>
 
     <div class="form-container">
@@ -12,60 +12,73 @@
         <%= f.input :district, label: "Quartier", collection: @DISTRICTS %>
       </div>
         <div class="d-flex">
+          <div class="half-width">
           <%= f.input :start_at, label: "Date de début", as: :datetime, html5: true %>
+          </div>
+          <div class="half-width">
           <%= f.input :end_at, label: "Date de fin", as: :datetime, html5: true %>
+          </div>
         </div>
+    </div>
+    <div class="form-container d-none">
       <div class="input-classic">
         <%= f.input :public_description, label: "description publique", :input_html => { :maxlength => 200 }, :placeholder => '200 caractères max...'%>
       </div>
       <div class="input-classic">
-        <%= f.input :pricing_description, label: "Tarification", :input_html => { :maxlength => 140 }, :placeholder => '140 caractères max...', :hint => "Un exemple de :hint"%>
-         <%= f.hint 'hint isolé' %>
+        <%= f.input :pricing_description, label: "Tarification", :input_html => { :maxlength => 140 }, :placeholder => '140 caractères max...'%>
+      </div>
+      <div class="input-classic">
+        <%= f.input :photo,
+                    label: "Télécharcher une image" %>
       </div>
     </div>
 
+    <div class="form-container d-none">
       <h3>Indiquez un type d'évènement</h3>
-    <div class="form-container-category">
-    <%= f.input :category,
-            as: :radio_buttons,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            input_html: {class: 'category-selector'},
-            label:"Indiquez le type d'évènement",
-            collection: Event::CATEGORIES %>
+      <div class="form-container-category">
+      <%= f.input :category,
+              label: "",
+              required: false,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector'},
+              collection: Event::CATEGORIES %>
+      </div>
     </div>
 
 
-    <div class="form-container">
+    <div class="form-container d-none">
         <%= f.input :required_safety_level, label: "Niveau de sécuriter requis", collection: @SAFETY_LEVELS%>
       <div class="input-classic">
         <%= f.input :requested_equipment_description, label: "Besoin de soutient logistique?", :placeholder => '12 chaises, 6 tables et 1 sono...', :input_html => { :maxlength => 200 }%>
       </div>
-    </div>
-    <div class="form-container d-none">
       <div class="input-classic">
         <%= f.input :general_comment, label: "Commentaires"%>
       </div>
+    </div>
+    <div class="form-container d-none">
       <div class="input-classic">
         <%= f.input :organization_name, label: "Structure organisatrice", :input_html => { :maxlength => 140 }%>
       </div>
-      <div class="input-classic">
-        <%= f.input :contact_last_name, label: "Nom du référent"%>
+      <div class="d-flex">
+        <div class="half-width mr-1">
+          <%= f.input :contact_last_name, label: "Nom du référent"%>
+        </div>
+        <div class="half-width ml-1">
+          <%= f.input :contact_first_name, label: "Prénom du référent"%>
+        </div>
       </div>
-      <div class="input-classic">
-        <%= f.input :contact_first_name, label: "Prénom du référent"%>
-      </div>
-      <div class="input-classic">
-        <%= f.input :contact_email, label: "Email du référent" %>
-      </div>
-      <div class="input-classic">
-        <%= f.input :contact_phone_number, label: "Téléphone du référent" %>
+      <div class="d-flex">
+        <div class="half-width mr-1">
+          <%= f.input :contact_email, label: "Email du référent" %>
+        </div>
+        <div class="half-width ml-1">
+          <%= f.input :contact_phone_number, label: "Téléphone du référent" %>
+        </div>
       </div>
 
-      <div class="input-classic">
-        <%= f.input :photo, label: "Télécharcher une image" %>
-      </div>
       <div class="d-flex justify-content-end input-classic">
         <%= f.button :submit, "envoyer", class: "btn btn-primary" %>
       </div>
