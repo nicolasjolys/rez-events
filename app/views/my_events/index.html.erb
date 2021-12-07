@@ -29,7 +29,7 @@
             <%= link_to edit_my_event_path(event) do %>
               <i class="fas fa-pen-square fa-lg"></i>
             <% end %>
-            <%= link_to cancel_my_event_path(event), method: :patch do %>
+            <%= link_to cancel_my_event_path(event), method: :patch, class: 'cancel-event' do %>
 
               <i class="fas fa-window-close fa-lg"></i>
             <% end %>
@@ -108,7 +108,6 @@
                 <h6>Commentaires</h6>
                 <p class="text-infos p-3"><%= event.general_comment %></p>
               </div>
-
             </div>
           </div>
           <div class="info-dates"></div>

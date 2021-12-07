@@ -1,7 +1,27 @@
 import Swal from 'sweetalert2'
 import Rails from "@rails/ujs"
 
-export const initSweetAlert = () => {
+const alertBtnAccepted = () => {
+  const acceptEvent = document.querySelectorAll(".accept-btn")
+  acceptEvent.forEach((form) => {
+    const button = form.querySelector('.btn-accept')
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      Swal.fire({
+        icon: 'success',
+        title: 'Evénement validé!',
+        showConfirmButton: false,
+        timer: 1500
+      }).then((result) => {
+        if (result.isDismissed) {
+          form.submit()
+        }
+      })
+    })
+  })
+}
+
+const alertBtnDeclined = () => {
   const declineForms = document.querySelectorAll('form.decline-btn');
   declineForms.forEach((form) => {
     const button = form.querySelector('.btn-decline')
@@ -31,22 +51,45 @@ export const initSweetAlert = () => {
       })
     })
   })
-  const acceptEvent = document.querySelectorAll(".accept-btn")
-  acceptEvent.forEach((form) => {
-    const button = form.querySelector('.btn-accept')
-    button.addEventListener('click', (e) => {
+}
+
+const alertBtnEdit = () => {
+  const editEvent = document.querySelector(".btn-edit-form")
+  const form = document.querySelector(".edit_event")
+  if (editEvent) {
+    editEvent.addEventListener('click', (e) => {
       e.preventDefault();
       Swal.fire({
-        icon: 'success',
-        title: 'Evénement validé!',
-        showConfirmButton: false,
-        timer: 1500
-    }).then((result) => {
+        icon: 'warning',
+        title: 'Voulez-vous confirmer vos modifications?',
+        showCancelButton: true,
+        confirmButtonText: 'Valider mes modifications'
+      })
+    })
+  }
+}
+
+const alertBtnCancel = () => {
+  const cancelEvents = document.querySelectorAll('.cancel-event')
+  console.log(cancelEvents)
+  cancelEvents.forEach((cancelEvent) => {
+    cancelEvent.addEventListener('click', (e) => {
+      e.preventDefault();
+      Swal.fire({
+          icon: 'warning',
+          title: 'Voulez-vous confirmer vos modifications?',
+          showCancelButton: true,
+          confirmButtonText: 'Valider mes modifications'
+      }).then((result) => {
         console.log(result)
-        if (result.isDismissed) {
-          form.submit()
-        }
       })
     })
   })
+}
+
+export const initSweetAlert = () => {
+  alertBtnDeclined();
+  alertBtnAccepted();
+  alertBtnEdit();
+  alertBtnCancel();
 }
