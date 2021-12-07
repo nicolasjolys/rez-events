@@ -16,14 +16,6 @@
   margin: 4px;
 }
 
-.fa-map-marker-alt, .fa-info-circle, .fa-file-signature, .fa-phone-alt {
-  color: #750065;
-  font-size: 3rem;
-  display: grid;
-  place-content: center;
-  margin-bottom: 50px;
-
-}
 
 .form-container-global {
   background-image: url('stage.jpg');
@@ -37,6 +29,13 @@
     text-align: center;
     color: #750065;
     text-shadow: rgba(195,195,195,0.8);
+  }
+  .fa-map-marker-alt, .fa-info-circle, .fa-file-signature, .fa-phone-alt {
+    color: #750065;
+    font-size: 3rem;
+    display: grid;
+    place-content: center;
+    margin-bottom: 50px;
   }
 }
 
