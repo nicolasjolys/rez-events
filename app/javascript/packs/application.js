@@ -9,9 +9,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
 
 
 // ----------------------------------------------------
@@ -27,7 +27,7 @@ import "bootstrap";
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { selectPhoto } from '../plugins/select_photo';
-import { initSweetAlert } from "../plugins/init_sweetalert"
+import { initSweetAlert } from "../plugins/init_sweetalert";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -37,4 +37,4 @@ document.addEventListener('turbolinks:load', () => {
   initSweetAlert();
 });
 
-import "controllers"
+import "controllers";
