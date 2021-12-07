@@ -8,8 +8,8 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log(this.currentIndexValue)
-    console.log(this.formContainerTargets)
+    // console.log(this.currentIndexValue)
+    // console.log(this.formContainerTargets)
   }
 
   next() {
