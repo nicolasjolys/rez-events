@@ -1,23 +1,33 @@
-// .input-classic {
-  //   width: 30rem;
-  // }
+.input-classic {
+    padding-bottom: 30px;
+  }
 
   // .uppercase {
     //   text-transform: uppercase;
     // }
 
 
-  .half-width {
-    flex-grow: 1;
-  }
+.half-width {
+  flex-grow: 1;
+}
 
-  .input-half-width {
-    display: flex;
-    margin: 4px;
-  }
+.input-half-width {
+  display: flex;
+  margin: 4px;
+}
+
+.fa-map-marker-alt, .fa-info-circle, .fa-file-signature, .fa-phone-alt {
+  color: #750065;
+  font-size: 3rem;
+  display: grid;
+  place-content: center;
+  margin-bottom: 50px;
+
+}
 
 .form-container-global {
   background-image: url('stage.jpg');
+  height: 120vh;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -25,7 +35,8 @@
   align-items: center;
   h3 {
     text-align: center;
-    color: white;
+    color: #750065;
+    text-shadow: rgba(195,195,195,0.8);
   }
 }
 
@@ -42,194 +53,258 @@
   background-color: rgba(255,255,255,0.9);
   padding: 30px;
   min-height: 70vh;
-
 }
 
+.form-container-paddinged {
+  padding-left: 110px;
+  padding-right: 110px;
+}
 
+.btn-form {
+  margin: 30px;
+  background-color: #750065;
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border-radius: 12px;
+  opacity: 0.7;
+  :hover {
+    color: black;
+    border: 1px solid black;
+  }
+}
+
+// CATEGORIES
 .form-container-category {
   // position: relative;
   // display: flex;
   // justify-content: center;
-  // border: 1px solid black;
-  // border-radius: 12px;
-  // box-shadow: black;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: black;
   // width: 50vw;
   // margin: 30px;
-  // background-color: rgba(195,195,195,0.8);
+  // background: linear-gradient(#e66465, #9198e5);
+  background-color: rgba(117,0,101,0.2);
   // padding: 30px;
-}
 
-.category-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  // grid-template-rows: 1fr 1fr 1fr 1fr;
-  // grid-gap: 10px;
+  .category-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 14px;
 
-  :last-child {
-    grid-column: 2;
+    :last-child {
+      grid-column: 2;
+    }
+  }
+
+  .category-item {
+    display: grid;
+    place-content: center;
+  }
+
+  .category-selector {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  .category-selector + label {
+    // font-weight: bold;
+    // display: block;
+    cursor: pointer;
+    height: 140px;
+    width: 140px;
+    // font-size: 16px;
+    // text-align: center;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: center;
+
+  }
+
+  .category-selector + label:hover {
+    // font-weight: bold;
+    // height: 100px;
+    // width: 100px;
+    // display: block;
+    // cursor: pointer;
+    // box-sizing: border-box;
+    // height: 140px;
+    // width: 140px;
+    // font-size: 16px;
+    // text-align: center;
+    // padding: 10px 10px 30px 10px;
+    // border: 1px solid $primary-blue;
+    // border-radius: 4px;
+    // border-radius: 12px;
+    // padding: 10px;
+    // background-origin: padding-box;
+    // background-repeat: no-repeat;
+    // background-size: 40px;
+    // background-position: center;
+
+
+  }
+
+  .category-selector:checked + label {
+    // color: white !important;
+    // border: 2px solid $primary-blue;
+  }
+
+  #event_category_culture + label {
+  background-image: image_url('Culture-w.svg');
+  }
+  #event_category_culture + label:hover {
+    background-image: image_url('Culture-grey.svg');
+  }
+  #event_category_culture:checked + label {
+    background-image: image_url('Culture-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  #event_category_sport + label {
+    background-image: url('Sport-w.svg');
+  }
+  #event_category_sport + label:hover {
+    background-image: url('Sport-grey.svg');
+  }
+  #event_category_sport:checked + label {
+    background-image: url('Sport-colored.svg');
+    transition: background-image 0.2s linear;
+  }
+
+  #event_category_education-jeunesse + label {
+    background-image: url('Education-Jeunesse-w.svg');
+  }
+  #event_category_education-jeunesse + label:hover {
+    background-image: url('Education-Jeunesse-grey.svg');
+  }
+  #event_category_education-jeunesse:checked + label {
+    background-image: url('Education-Jeunesse-colored.svg');
+    transition: background-image 0.2s linear;
+  }
+
+  #event_category_developpement_durable + label {
+    background-image: url('Developpement durable-w.svg');
+  }
+  #event_category_developpement_durable + label:hover {
+    background-image: url('Developpement durable-grey.svg');
+    transition: background-image 1s linear;
+  }
+  #event_category_developpement_durable:checked + label {
+    background-image: url('Developpement durable-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  #event_category_solidarité + label {
+    background-image: url('Solidarité-w.svg');
+  }
+  #event_category_solidarité + label:hover {
+    background-image: url('Solidarité-grey.svg');
+  }
+  #event_category_solidarité:checked + label {
+    background-image: url('Solidarité-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  #event_category_santé + label {
+    background-image: url('Santé-w.svg');
+  }
+  #event_category_santé + label:hover {
+    background-image: url('Santé-grey.svg');
+  }
+  #event_category_santé:checked + label {
+    background-image: url('Santé-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  #event_category_petite_enfance + label {
+    background-image: url('Petite enfance-w.svg');
+  }
+  #event_category_petite_enfance + label:hover {
+    background-image: url('Petite enfance-grey.svg');
+  }
+  #event_category_petite_enfance:checked + label {
+    background-image: url('Petite enfance-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  #event_category_dialogue_citoyen + label {
+    background-image: url('Dialogue citoyen-w.svg');
+  }
+  #event_category_dialogue_citoyen + label:hover {
+    background-image: url('Dialogue citoyen-grey.svg');
+  }
+  #event_category_dialogue_citoyen:checked + label {
+    background-image: url('Dialogue citoyen-colored.svg');
+    transition: background-image 0.2s linear;
+  }
+
+  #event_category_commémoration + label {
+    background-image: url('dove-solid-w.svg');
+  }
+  #event_category_commémoration + label:hover {
+    background-image: url('dove-solid-grey.svg');
+  }
+  #event_category_commémoration:checked + label {
+    background-image: url('dove-solid-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  #event_category_autre + label {
+    background-image: url('Autre-w.svg');
+  }
+  #event_category_autre + label:hover {
+    background-image: url('Autre-grey.svg');
+  }
+  #event_category_autre:checked + label {
+    background-image: url('Autre-colored.svg');
+    transition: background-image 0.6s linear;
+  }
+
+  .form-check-label {
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 104px;
   }
 }
 
-.category-item {
-  display: grid;
-  place-content: center;
-}
+// SAFETY
+.form-container-security {
+  .safety_levels-item {
+    // flex: 0 0 30%;
+  }
 
-.category-selector {
-  position: absolute;
-  transform: scale(0);
-}
+  .safety_levels-selector {
+    position: absolute;
+    transform: scale(0);
+  }
 
-.category-selector + label {
-  // font-weight: bold;
-  // display: block;
-  cursor: pointer;
-  height: 140px;
-  width: 140px;
-  // font-size: 16px;
-  // text-align: center;
-  // border: 1px solid $primary-blue;
-  border-radius: 12px;
-  // border-radius: 12px;
-  background-repeat: no-repeat;
-  background-size: 50px;
-  background-position: center;
+  .safety_levels-selector + label {
+    display: block;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #EAEAEA;
+    border-radius: 4px;
+    background-color: white;
+    color: red !important;
+    border-radius: 10px;
+    padding: 0.8em;
+    box-shadow: 1px 3px 1px lightgray;
+    margin: 4px;
+  }
 
-}
+  .safety_levels-selector:checked + label {
+    background: rgb(255, 134, 134);
+    color: white !important;
+    transition: all 0.6s ease-in-out;
 
-.category-selector + label:hover {
-  // font-weight: bold;
-  // height: 100px;
-  // width: 100px;
-  // display: block;
-  // cursor: pointer;
-  // box-sizing: border-box;
-  // height: 140px;
-  // width: 140px;
-  // font-size: 16px;
-  // text-align: center;
-  // padding: 10px 10px 30px 10px;
-  // border: 1px solid $primary-blue;
-  // border-radius: 4px;
-  // border-radius: 12px;
-  // padding: 10px;
-  // background-origin: padding-box;
-  // background-repeat: no-repeat;
-  // background-size: 40px;
-  // background-position: center;
-
-
-}
-
-.category-selector:checked + label {
-  // color: white !important;
-  // border: 2px solid $primary-blue;
-}
-
-#event_category_culture + label {
-background-image: image_url('Culture-w.svg');
-}
-#event_category_culture + label:hover {
-background-image: image_url('Culture-grey.svg');
-}
-#event_category_culture:checked + label {
-  background-image: image_url('Culture-colored.svg');
-}
-
-#event_category_sport + label {
-  background-image: url('Sport-w.svg');
-}
-#event_category_sport + label:hover {
-  background-image: url('Sport-grey.svg');
-}
-#event_category_sport:checked + label {
-  background-image: url('Sport-colored.svg');
-}
-
-#event_category_education-jeunesse + label {
-  background-image: url('Education-Jeunesse-w.svg');
-}
-#event_category_education-jeunesse + label:hover {
-  background-image: url('Education-Jeunesse-grey.svg');
-}
-#event_category_education-jeunesse:checked + label {
-  background-image: url('Education-Jeunesse-colored.svg');
-}
-
-#event_category_developpement_durable + label {
-  background-image: url('Developpement durable-w.svg');
-}
-#event_category_developpement_durable + label:hover {
-  background-image: url('Developpement durable-grey.svg');
-}
-#event_category_developpement_durable:checked + label {
-  background-image: url('Developpement durable-colored.svg');
-}
-
-#event_category_solidarité + label {
-  background-image: url('Solidarité-w.svg');
-}
-#event_category_solidarité + label:hover {
-  background-image: url('Solidarité-grey.svg');
-}
-#event_category_solidarité:checked + label {
-  background-image: url('Solidarité-colored.svg');
-}
-
-#event_category_santé + label {
-  background-image: url('Santé-w.svg');
-}
-#event_category_santé + label:hover {
-  background-image: url('Santé-grey.svg');
-}
-#event_category_santé:checked + label {
-  background-image: url('Santé-colored.svg');
-}
-
-#event_category_petite_enfance + label {
-  background-image: url('Petite enfance-w.svg');
-}
-#event_category_petite_enfance + label:hover {
-  background-image: url('Petite enfance-grey.svg');
-}
-#event_category_petite_enfance:checked + label {
-  background-image: url('Petite enfance-colored.svg');
-}
-
-#event_category_dialogue_citoyen + label {
-  background-image: url('Dialogue citoyen-w.svg');
-}
-#event_category_dialogue_citoyen + label:hover {
-  background-image: url('Dialogue citoyen-grey.svg');
-}
-#event_category_dialogue_citoyen:checked + label {
-  background-image: url('Dialogue citoyen-colored.svg');
-}
-
-#event_category_commémoration + label {
-  background-image: url('dove-solid-w.svg');
-}
-#event_category_commémoration + label:hover {
-  background-image: url('dove-solid-grey.svg');
-}
-#event_category_commémoration:checked + label {
-  background-image: url('dove-solid-colored.svg');
-}
-
-#event_category_autre + label {
-  background-image: url('Autre-w.svg');
-}
-#event_category_autre + label:hover {
-  background-image: url('Autre-grey.svg');
-}
-#event_category_autre:checked + label {
-  background-image: url('Autre-colored.svg');
-}
-
-.form-check-label {
-  color: white !important;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 96px;
+  }
 }
