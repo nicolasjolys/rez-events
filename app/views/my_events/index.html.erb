@@ -1,5 +1,5 @@
 <div class="title text-center mt-2">
-  <h3>EVENEMENTS A VENIR - <span class="event-to-validate"><%= @events.length %></span></h3>
+  <h3>MES EVENEMENTS - <span class="event-to-validate"><%= @events.length %></span></h3>
 </div>
 
 <div class="container-fluid mb-5" id="accordion">
@@ -29,8 +29,8 @@
             <%= link_to edit_my_event_path(event) do %>
               <i class="fas fa-pen-square fa-lg"></i>
             <% end %>
-            <%= link_to cancel_my_event_path(event), method: :patch do %>
-              <%=  %>
+            <%= link_to cancel_my_event_path(event), method: :patch, id: "sweet-alert-demo" do %>
+
               <i class="fas fa-window-close fa-lg"></i>
             <% end %>
           </div>
