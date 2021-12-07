@@ -70,7 +70,8 @@ const alertBtnEdit = () => {
 }
 
 const alertBtnCancel = () => {
-  const cancelEvents = document.querySelectorAll('.cancel-event')
+  const cancelEvents = document.querySelectorAll('.fa-window-close')
+  const cancelEventBtn = document.querySelector('.cancel_event')
   console.log(cancelEvents)
   cancelEvents.forEach((cancelEvent) => {
     cancelEvent.addEventListener('click', (e) => {
