@@ -1,26 +1,132 @@
 <h2>EDITER MON EVENEMENT</h2>
-  <div class="log-container">
+  <div class="form-container-global" data-controller="event-form" data-event-form-current-index-value="0">
   <%= simple_form_for @event, url: my_event_path(@event) do |f| %>
-    <%= f.input :name, label: "Nom de l'évènement", error: 'Username is mandatory, please specify one' %>
-    <%= f.input :address, label: "Adresse de l'évènement" %>
-    <%= f.input :district, label: "Quartier", collection: @DISTRICTS %>
-    <%= f.input :start_at, label: "Date de début"%>
-    <%= f.input :end_at, label: "Date de fin"%>
-    <%= f.input :pricing_description, label: "Tarification"%>
-    <%= f.input :public_description, label: "description publique"%>
 
-    <%= f.input :category, label: "Type d'évènement", collection: @CATEGORIES%>
-    <%= f.input :required_safety_level, label: "Niveau de sécuriter requis", collection: @SAFETY_LEVELS%>
-    <%= f.input :requested_equipment_description, label: "Besoin de soutient logistique?"%>
-    <%= f.input :general_comment, label: "Commentaires"%>
+    <div class="form-container form-container-paddinged" data-event-form-target="formContainer">
+    <i class="fas fa-map-marker-alt"></i>
+      <div class="input-classic">
+        <%= f.input :name, label: "Nom de l'évènement", error: 'Veuillez donner un nom à lévènement', :input_html => { :class => 'uppercase' }, :input_html => { :maxlength => 140 } %>
+      </div>
+      <div class="input-classic">
+        <%= f.input :address, label: "Adresse de l'évènement" %>
+      </div>
+      <div class="input-classic">
+        <%= f.input :district, label: "Quartier", collection: @DISTRICTS %>
+      </div>
+        <div class="d-flex">
+          <div class="half-width">
+          <%= f.input :start_at, label: "Date de début", as: :datetime, html5: true %>
+          </div>
+          <div class="half-width">
+          <%= f.input :end_at, label: "Date de fin", as: :datetime, html5: true %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" data-action="event-form#next" class="btn btn-form">next</button>
+        </div>
+    </div>
 
-    <%= f.input :organization_name, label: "Structure organisatrice"%>
-    <%= f.input :contact_last_name, label: "Nom du référent"%>
-    <%= f.input :contact_first_name, label: "Prénom du référent"%>
-    <%= f.input :contact_email, label: "Email du référent" %>
-    <%= f.input :contact_phone_number, label: "Téléphone du référent" %>
+    <div class="form-container form-container-paddinged d-none" data-event-form-target="formContainer">
+    <i class="fas fa-info-circle"></i>
+      <div class="input-classic">
+        <%= f.input :public_description, label: "description publique", :input_html => { :maxlength => 200 }, :placeholder => '200 caractères max...'%>
+      </div>
+      <div class="input-classic">
+        <%= f.input :pricing_description, label: "Tarification", :input_html => { :maxlength => 140 }, :placeholder => '140 caractères max...'%>
+      </div>
+      <%# <div class="input-classic">
+        <%= f.input :photo,
+                    label: "Télécharcher une image",
+                    item_wrapper_class: 'category-item',
+                    input_html: {class: 'photo-selector'} %>
+                    <%# </div> %>
+      <div class="center">
+        <div class="form-input d-flex">
+          <label for="file-ip-1">Upload Image</label>
+          <input type="file" id="file-ip-1" accept="image/*">
+          <div class="preview">
+            <img id="file-ip-1-preview">
+          </div>
+        </div>
+      </div>
 
 
-    <%= f.button :submit, "suivant", class: "btn btn-primary btn-edit-form" %>
+      <div class="d-flex justify-content-between">
+        <button type="button" data-action="event-form#back" class="btn btn-form">back</button>
+        <button type="button" data-action="event-form#next" class="btn btn-form">next</button>
+      </div>
+    </div>
+
+    <div class="form-container d-none" data-event-form-target="formContainer">
+      <h3>Choisissez le type d'évènement</h3>
+      <div class="form-container-category">
+      <%= f.input :category,
+              label: "",
+              required: false,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector'},
+              collection: Event::CATEGORIES %>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" data-action="event-form#back" class="btn btn-form">back</button>
+        <button type="button" data-action="event-form#next" class="btn btn-form">next</button>
+      </div>
+    </div>
+
+
+    <div class="form-container form-container-paddinged d-none" data-event-form-target="formContainer">
+    <i class="fas fa-file-signature"></i>
+    <div class="form-container-security">
+      <%= f.input :required_safety_level,
+              label: "Niveau de sécurité requis",
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'safety_levels-wrapper',
+              item_wrapper_class: 'safety_levels-item',
+              input_html: {class: 'safety_levels-selector'},
+              collection: Event::SAFETY_LEVELS %>
+    </div>
+      <div class="input-classic">
+        <%= f.input :requested_equipment_description, label: "Besoin de soutient logistique?", :placeholder => '12 chaises, 6 tables et 1 sono...', :input_html => { :maxlength => 200 }%>
+      </div>
+      <div class="input-classic">
+        <%= f.input :general_comment, label: "Commentaires"%>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" data-action="event-form#back"class="btn btn btn-form">back</button>
+        <button type="button" data-action="event-form#next" class="btn btn btn-form">next</button>
+      </div>
+    </div>
+
+    <div class="form-container form-container-paddinged d-none" data-event-form-target="formContainer">
+    <i class="fas fa-phone-alt"></i>
+      <div class="input-classic">
+        <%= f.input :organization_name, label: "Structure organisatrice", :input_html => { :maxlength => 140 }%>
+      </div>
+      <div class="d-flex">
+        <div class="half-width mr-1">
+          <%= f.input :contact_last_name, label: "Nom du référent"%>
+        </div>
+        <div class="half-width ml-1">
+          <%= f.input :contact_first_name, label: "Prénom du référent"%>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="half-width mr-1">
+          <%= f.input :contact_email, label: "Email du référent" %>
+        </div>
+        <div class="half-width ml-1">
+          <%= f.input :contact_phone_number, label: "Téléphone du référent" %>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+          <button type="button" data-action="event-form#back" class="btn-form">back</button>
+        <%= f.button :submit, "envoyer", class: "btn btn-form" %>
+      </div>
+    </div>
   <% end %>
-  </div>
+</div>
