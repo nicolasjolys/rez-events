@@ -261,14 +261,13 @@
   }
 
   #event_category_developpement_durable + label {
-    background-image: url('Developpement durable-w.svg');
+    background-image: url('Developpement_durable-w.svg');
   }
   #event_category_developpement_durable + label:hover {
-    background-image: url('Developpement durable-grey.svg');
-    transition: background-image 1s linear;
+    background-image: url('Developpement_durable-grey.svg');
   }
   #event_category_developpement_durable:checked + label {
-    background-image: url('Developpement durable-colored.svg');
+    background-image: url('Developpement_durable-colored.svg');
     transition: background-image 0.6s linear;
   }
 
@@ -295,24 +294,24 @@
   }
 
   #event_category_petite_enfance + label {
-    background-image: url('Petite enfance-w.svg');
+    background-image: url('Petite_enfance-w.svg');
   }
   #event_category_petite_enfance + label:hover {
-    background-image: url('Petite enfance-grey.svg');
+    background-image: url('Petite_enfance-grey.svg');
   }
   #event_category_petite_enfance:checked + label {
-    background-image: url('Petite enfance-colored.svg');
+    background-image: url('Petite_enfance-colored.svg');
     transition: background-image 0.6s linear;
   }
 
   #event_category_dialogue_citoyen + label {
-    background-image: url('Dialogue citoyen-w.svg');
+    background-image: url('Dialogue_citoyen-w.svg');
   }
   #event_category_dialogue_citoyen + label:hover {
-    background-image: url('Dialogue citoyen-grey.svg');
+    background-image: url('Dialogue_citoyen-grey.svg');
   }
   #event_category_dialogue_citoyen:checked + label {
-    background-image: url('Dialogue citoyen-colored.svg');
+    background-image: url('Dialogue_citoyen-colored.svg');
     transition: background-image 0.2s linear;
   }
 
