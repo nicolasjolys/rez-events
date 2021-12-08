@@ -230,6 +230,11 @@
   width: 100%;
 }
 
+.hover-shadow:hover {
+  box-shadow: 0 1px 2px #7979DE;
+  transition: box-shadow 0.2s linear;
+}
+
 .accepted {
   color: #94BF1A;
   border-radius: 50%;
