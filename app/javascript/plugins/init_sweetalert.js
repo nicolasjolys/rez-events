@@ -10,7 +10,7 @@ const alertBtnAccepted = () => {
         icon: 'success',
         title: 'Evénement accepté!',
         showConfirmButton: false,
-        timer: 2000
+        timer: 1500
       }).then((result) => {
         if (result.isDismissed) {
           form.submit()
