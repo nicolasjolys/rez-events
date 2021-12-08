@@ -7,6 +7,7 @@ class Agent::Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.status = "declined"
     @event.declined_at = Time.now
+
     @event.save
 
     redirect_to agent_admin_events_path
