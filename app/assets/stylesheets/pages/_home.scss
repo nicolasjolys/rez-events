@@ -7,15 +7,14 @@
 }
 
 
-
 .home-banner {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  background-image: url('familly.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('familly.jpg');
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   height: 84vh;
   width: 100 vw;
   text-align: center;
@@ -61,4 +60,13 @@ h1 {
   font-weight: bold !important;
   background-color: transparent !important;
   color: rgb(80, 76, 76) !important;
+}
+
+.layering {
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  div, h1 {
+    z-index: 1;
+  }
 }
