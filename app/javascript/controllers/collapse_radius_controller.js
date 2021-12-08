@@ -4,7 +4,13 @@ export default class extends Controller {
   static targets = ["greenSquare", "collapseLink"]
 
   next(event){
-    this.greenSquareTarget.classList.toggle("border-radius-collapse")
-    console.log(this.greenSquareTarget)
+    if (this.greenSquareTarget.classList.contains("border-radius-collapse")) {
+      this.greenSquareTarget.classList.remove("border-radius-collapse")
+    } else {
+      setTimeout(() => {
+        this.greenSquareTarget.classList.add("border-radius-collapse")
+      }, 400);
+    }
+    // console.log(this.greenSquareTarget)
   }
 }
