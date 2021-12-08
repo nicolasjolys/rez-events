@@ -71,27 +71,26 @@ const alertBtnEdit = () => {
   }
 }
 
-// const alertBtnCancel = () => {
-//   const cancelEvents = document.querySelectorAll('.cancel-event')
-//   cancelEvents.forEach((cancelEvent) => {
-//     cancelEvent.addEventListener('click', (e) => {
-//       e.preventDefault();
-//       Swal.fire({
-//           icon: 'warning',
-//           title: 'Voulez-vous confirmer vos modifications?',
-//           showCancelButton: true,
-//           confirmButtonText: 'Valider mes modifications',
-//           timer: 3000
-//       }).then((result) => {
-//         console.log(result)
-//       })
-//     })
-//   })
-// }
+const alertBtnCancel = () => {
+  const cancelEvents = document.querySelectorAll('.cancel-event')
+  cancelEvents.forEach((cancelEvent) => {
+    cancelEvent.addEventListener('click', (e) => {
+      e.preventDefault();
+      Swal.fire({
+          icon: 'warning',
+          title: 'Vous aller annuler votre événement, merci de confirmer',
+          showCancelButton: true,
+          confirmButtonText: 'Annuler!',
+      }).then((result) => {
+        console.log(result)
+      })
+    })
+  })
+}
 
 export const initSweetAlert = () => {
   alertBtnDeclined();
   alertBtnAccepted();
   alertBtnEdit();
-  // alertBtnCancel();
+  alertBtnCancel();
 }
