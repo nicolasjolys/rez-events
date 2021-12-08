@@ -258,6 +258,7 @@
   text-shadow: orange 1px 0 10px;
 }
 .edit-status {
+  width: 8rem;
   height: 8rem;
 }
 
@@ -278,4 +279,22 @@
 
 .disabled-card {
   filter: grayscale(1);
+}
+
+.edit-event {
+  justify-content: right;
+}
+
+.accept-event {
+  padding-right: 5px;
+}
+
+.cancel-event {
+  border: none;
+  padding: 0;
+  height: 12px;
+}
+
+.edit-icon {
+  padding-right: 5px;
 }
