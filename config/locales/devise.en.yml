@@ -4,6 +4,8 @@ fr:
     sessions:
       signed_in: "Vous êtes connecté."
       signed_out: "Vous êtes déconnecté."
+    failure:
+      unauthenticated: "Vous devez vous connecter pour continuer"
 en:
   devise:
     confirmations:
