@@ -1,6 +1,5 @@
 const selectPhoto = () => {
   const target = document.getElementById("file-ip-1");
-
   if (target) {
     target.addEventListener("change", (event) => {
       if (event.target.files.length > 0) {
