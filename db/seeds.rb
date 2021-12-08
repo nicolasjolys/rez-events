@@ -123,9 +123,6 @@ organization2 = User.create!(
 
 puts "Events creation"
 
-start_time = (3..5).to_a.sample
-end_time = (1..3).to_a.sample
-
 puts "event1 creation"
 
 event1 = Event.create!(
@@ -149,6 +146,16 @@ event1 = Event.create!(
   status: "pending"
 )
 
+puts "event 1 body done"
+puts "event 1 picture creation"
+
+
+file = File.open(Rails.root.join('db/neighboors.jpg'))
+event1.photo.attach(io: file, filename: 'neighboors.jpg', content_type: 'image/jpg')
+event1.save!
+
+puts "event 1 picture done"
+
 puts "event2 creation"
 
 event2 = Event.create!(
@@ -170,6 +177,17 @@ event2 = Event.create!(
   requested_equipment_description: "Un podium pour la remise des prix",
   status: "pending"
 )
+
+
+puts "event 2 body done"
+puts "event 2 picture creation"
+
+
+file = File.open(Rails.root.join('db/football.jpg'))
+event2.photo.attach(io: file, filename: 'football.jpg', content_type: 'image/jpg')
+event2.save!
+
+puts "event 2 picture done"
 
 puts "event3 creation"
 
@@ -194,6 +212,16 @@ event3 = Event.create!(
   requested_equipment_description: "Un barnum, 5 tables et 18 chaises"
 )
 
+
+puts "event 3 body done"
+puts "event 3 picture creation"
+
+
+file = File.open(Rails.root.join('db/climat.jpeg'))
+event3.photo.attach(io: file, filename: 'climat.jpeg', content_type: 'image/jpeg')
+event3.save!
+
+puts "event 3 picture done"
 puts "event4 creation"
 
 event4 = Event.create!(
@@ -213,6 +241,21 @@ event4 = Event.create!(
   pricing_description: "Gratuit",
   status: "pending"
 )
+
+
+
+puts "event 4 body done"
+puts "event 4 picture creation"
+
+
+file = File.open(Rails.root.join('db/education.jpeg'))
+event4.photo.attach(io: file, filename: 'education.jpeg', content_type: 'image/jpeg')
+event4.save!
+
+puts "event 4 picture done"
+
+puts "event5 creation"
+
 
 event5 = Event.create!(
   user: admin1,
@@ -236,6 +279,20 @@ event5 = Event.create!(
   general_comment: "Merci de faire le point en interne sur le matériel nécessaire"
 )
 
+
+puts "event5 body done"
+puts "event5 picture creation"
+
+
+file = File.open(Rails.root.join('db/marathon.jpeg'))
+event5.photo.attach(io: file, filename: 'marathon.jpeg', content_type: 'image/jpeg')
+event5.save!
+
+puts "event 5 picture done"
+
+puts "event6 creation"
+
+
 event6 = Event.create!(
   user: admin1,
   name: "Distribution de repas",
@@ -256,6 +313,18 @@ event6 = Event.create!(
   accepted_at: Date.today
 )
 
+puts "event 6 body done"
+puts "event 6 picture creation"
+
+
+file = File.open(Rails.root.join('db/food.jpeg'))
+event6.photo.attach(io: file, filename: 'food.jpeg', content_type: 'image/jpeg')
+event6.save!
+
+puts "event 6 picture done"
+
+puts "event7 creation"
+
 event7 = Event.create!(
   user: admin1,
   name: "Bal d'hiver zumba",
@@ -274,6 +343,18 @@ event7 = Event.create!(
   status: "pending",
   accepted_at: Date.today
 )
+
+puts "event 7 body done"
+puts "event 7 picture creation"
+
+
+file = File.open(Rails.root.join('db/zumba.jpg'))
+event7.photo.attach(io: file, filename: 'zumba.jpeg', content_type: 'image/jpg')
+event7.save!
+
+puts "event 7 picture done"
+
+puts "event8 creation"
 
 event8 = Event.create!(
   user: admin1,
@@ -294,5 +375,15 @@ event8 = Event.create!(
   status: "pending",
   accepted_at: Date.today
 )
+
+puts "event 8 body done"
+puts "event 8 picture creation"
+
+
+file = File.open(Rails.root.join('db/maman.jpg'))
+event8.photo.attach(io: file, filename: 'maman.jpeg', content_type: 'image/jpg')
+event8.save!
+
+puts "event 8 picture done"
 
 puts "Finished seeding"

@@ -43,3 +43,10 @@ h1 {
     text-decoration: none;
   }
 }
+
+.home-pictures img {
+  height: 8rem;
+  width: 8rem;
+  object-fit: contain;
+  margin-right: 1rem;
+}

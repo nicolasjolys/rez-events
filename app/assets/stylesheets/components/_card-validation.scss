@@ -4,6 +4,10 @@
   width: 70rem;
   padding-right: 0;
 
+  .hover-shadow:hover {
+    box-shadow: 0 .2rem .2rem rgba(#7979DE, .15);
+  }
+
   .card-header {
     border-radius: 10px;
     border: none;
@@ -21,7 +25,7 @@
       width: 10rem;
     }
     .info-event-header {
-      width: 44rem;
+      width: 100%;
 
       .bold {
         font-weight: bold;
