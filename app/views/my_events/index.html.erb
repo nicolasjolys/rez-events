@@ -130,8 +130,12 @@
                 <% end %>
               </div>
               <div class="remarques mt-4">
+              <% if event.general_comment? %>
                 <h6>Commentaires</h6>
                 <p class="text-infos p-3"><%= event.general_comment %></p>
+                <% else %>
+                <h6>Pas de commentaire</h6>
+                <% end %>
               </div>
             </div>
           </div>
