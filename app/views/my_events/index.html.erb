@@ -26,15 +26,18 @@
         </div>
 
         <div class="edit-status d-flex flex-column justify-content-between">
-          <div class="edit-event pt-3 text-right">
+          <div class="edit-event pt-3 text-right d-flex">
             <% if event.status == "canceled" %>
-              <i class="fas fa-pen-square fa-lg"></i>
+              <i class="fas fa-pen-square fa-lg edit-icon"></i>
               <i class="fas fa-window-close fa-lg"></i>
             <% else %>
                 <%= link_to edit_my_event_path(event) do %>
-                <i class="fas fa-pen-square fa-lg"></i>
+                <i class="fas fa-pen-square fa-lg edit-icon"></i>
               <% end %>
-              <%= link_to cancel_my_event_path(event), method: :patch, class: 'cancel-event' do %>
+              <%= button_to cancel_my_event_path(event),
+                  method: :patch,
+                  class: 'cancel-event',
+                  form: { class: "cancel-form" } do %>
                 <i class="fas fa-window-close fa-lg"></i>
               <% end %>
             <% end %>

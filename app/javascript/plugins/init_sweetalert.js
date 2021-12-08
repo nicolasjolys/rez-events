@@ -73,6 +73,7 @@ const alertBtnEdit = () => {
 
 const alertBtnCancel = () => {
   const cancelEvents = document.querySelectorAll('.cancel-event')
+  const form = document.querySelector('.cancel-form')
   cancelEvents.forEach((cancelEvent) => {
     cancelEvent.addEventListener('click', (e) => {
       e.preventDefault();
@@ -82,7 +83,9 @@ const alertBtnCancel = () => {
           showCancelButton: true,
           confirmButtonText: 'Annuler!',
       }).then((result) => {
-        console.log(result)
+        if (result.isConfirmed) {
+          form.submit();
+        }
       })
     })
   })
