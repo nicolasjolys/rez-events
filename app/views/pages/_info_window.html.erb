@@ -1,3 +1,9 @@
-<%= event.name %>
-<br>
-<%= event.address %>
+
+
+<div>
+  <% link_to event_path(event) do %>
+    <%= event.name %>
+    <br>
+    <%= event.address %>
+  <% end  %>
+</div>
