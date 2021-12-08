@@ -38,10 +38,6 @@
     .home-info-event-header {
       width: 100%;
 
-      .bold {
-        font-weight: bold;
-      }
-
       h4 {
         font-size: 1.3em;
       }
@@ -127,12 +123,14 @@
       align-items: center;
       justify-content: center;
       border-top-right-radius: 10px;
-    }
+      font-size: 0.7rem;
+      border-bottom-right-radius: 0;
 
-    .border-radius-collapse {
-      border-bottom-right-radius: 10px;
+      &.border-radius-collapse {
+        transition: border-bottom-right-radius 0.1s;
+        border-bottom-right-radius: 10px;
+      }
     }
-
   }
 
   .card-body {
@@ -272,4 +270,12 @@
   i {
     height: 12px
   }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.disabled-card {
+  filter: grayscale(1);
 }
