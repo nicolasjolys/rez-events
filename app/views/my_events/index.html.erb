@@ -27,7 +27,7 @@
 
         <div class="edit-status d-flex flex-column justify-content-between">
           <div class="edit-event pt-3 text-right d-flex">
-            <% if event.status == "canceled" %>
+            <% if event.status == "canceled" || event.status == "declined" %>
               <i class="fas fa-pen-square fa-lg edit-icon"></i>
               <i class="fas fa-window-close fa-lg"></i>
             <% else %>

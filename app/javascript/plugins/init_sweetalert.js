@@ -79,9 +79,10 @@ const alertBtnCancel = () => {
       e.preventDefault();
       Swal.fire({
           icon: 'warning',
-          title: 'Vous aller annuler votre événement, merci de confirmer',
+          title: 'Souhaitez-vous annuler votre événement?',
           showCancelButton: true,
-          confirmButtonText: 'Annuler!',
+          cancelButtonText: 'Annuler',
+          confirmButtonText: 'Confirmer!',
       }).then((result) => {
         if (result.isConfirmed) {
           form.submit();
