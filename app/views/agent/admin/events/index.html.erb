@@ -5,12 +5,12 @@
 <div class="container-fluid mb-5" id="accordion">
   <% @events.each do |event| %>
     <div class="card mx-auto mt-4" >
-      <div class="card-header d-flex justify-content-between align-items-center btn p-0">
+      <div class="card-header d-flex justify-content-between align-items-center btn p-0" data-controller="collapse-radius">
         <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
           <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
         </div>
 
-        <div class="info-event-header d-flex flex-column" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+        <div class="info-event-header d-flex flex-column" data-collapse-radius-target="collapseLink" data-action="click->collapse-radius#next" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
           <div class="info-header text-left p-3">
             <h4 class="bold"><%= event.name %></h4>
             <h5><%= event.organization_name %></h5>
@@ -37,7 +37,7 @@
                         params: { declined_explanation: "" } %>
         </div>
 
-        <div class="info-dates d-flex">
+        <div class="info-dates d-flex border-radius-collapse" data-collapse-radius-target="greenSquare">
           <p class="m-3"><%= event.start_at.strftime("%d/%m/%Y") %></p>
           <p class="m-3"><%= event.end_at.strftime("%d/%m/%Y") %></p>
         </div>
