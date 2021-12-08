@@ -26,8 +26,8 @@
               <%= cl_image_tag event.photo.key %>
             <% end %>
           </div>
-          <div class="info-dates d-flex">
-            <div class="info-dates d-flex bold border-radius-collapse" data-collapse-radius-target="greenSquare">
+          <div class="info-dates d-flex home-font-date">
+            <div class="info-dates d-flex bold home-font-date">
               <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
                 <%= l(event.start_at, format: "%^a") %>
                 <%= l(event.start_at, format: "%e") %>
@@ -79,7 +79,6 @@
                   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
                 </div>
             </div>
-            <div class="info-dates"></div>
           </div>
         </div>
       </div>
