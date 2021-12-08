@@ -38,13 +38,27 @@
                     <% end %>
                   </div>
                 </div>
-
-                <div class="info-dates">
-                  <%= l(event.start_at, format: "%^a") %><br>
-                  <%= l(event.start_at, format: "%e") %><br>
-                  <%= l(event.start_at, format: "%^b") %><br>
-                  <%= l(event.start_at, format: "%HH%M") %><br>
-                </div>
+                <div class="info-dates d-flex home-font-date">
+                  <div class="info-dates d-flex bold corner-radius home-font-date">
+                    <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
+                      <%= l(event.start_at, format: "%^a") %>
+                      <%= l(event.start_at, format: "%e") %>
+                      <%= l(event.start_at, format: "%^b") %> <br>
+                      <%= l(event.start_at, format: "%HH%M") %> À
+                      <%= l(event.end_at, format: "%HH%M") %>
+                    <% else %>
+                      <%= l(event.start_at, format: "%^a") %>
+                      <%= l(event.start_at, format: "%e") %>
+                      <%= l(event.start_at, format: "%^b") %> À
+                      <%= l(event.start_at, format: "%HH%M") %><br>
+                      AU <br>
+                      <%= l(event.end_at, format: "%^a") %>
+                      <%= l(event.end_at, format: "%e") %>
+                      <%= l(event.end_at, format: "%^b") %> À
+                      <%= l(event.end_at, format: "%HH%M") %><br>
+                    <% end %>
+                  </div>
+          </div>
               </div>
             </div>
           <% end %>

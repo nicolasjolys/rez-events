@@ -13,10 +13,10 @@
   flex-direction: column;
   justify-content: flex-end;
 
-  background-image: url('stage.jpg');
+  background-image: url('familly.jpg');
   background-size: cover;
   background-position: top;
-  height: 77vh;
+  height: 84vh;
   width: 100 vw;
   text-align: center;
 
@@ -49,4 +49,16 @@ h1 {
   width: 8rem;
   object-fit: contain;
   margin-right: 1rem;
+}
+
+
+.corner-radius {
+  border-bottom-right-radius: 10px !important;
+}
+
+.home-font-date {
+  font-size: .9rem !important;
+  font-weight: bold !important;
+  background-color: transparent !important;
+  color: rgb(80, 76, 76) !important;
 }
