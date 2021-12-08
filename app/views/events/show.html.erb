@@ -1,5 +1,26 @@
 
+<div class="card-header d-flex justify-content-between align-items-center btn p-0">
+        <div class="primary-icon text-center <%= category_name_to_color(@event.category) %>">
+          <i class="fas <%= category_name_to_fa_class_name(@event.category) %> fa-4x"></i>
+        </div>
 
+        <div class="info-event-header d-flex flex-column" id="heading<%= @event.id %>" data-toggle="collapse" data-target="#collapse<%= @event.id %>" aria-expanded="true" aria-controls="collapse<%= @event.id %>">
+          <div class="info-header text-left p-3">
+            <h4 class="bold"><%= @event.name %></h4>
+            <h5><%= @event.organization_name %></h5>
+          </div>
+          <div class="info-localisation mr-5 text-left">
+            <div class="address d-flex align-items-center mx-3 pb-2">
+              <i class="fas fa-map-marker-alt fa-lg mb-0 mr-1"></i>
+              <p class="m-0 mr-4 clear-text"><%= @event.address %></p>
+              <p class="mb-0 district"><%= @event.district %></p>
+            </div>
+          </div>
+          <i class="fas fa-chevron-down text-center"></i>
+        </div>
+
+
+        
 <%= @event.name %><br>
 <%= @event.address %><br>
 <%= @event.start_at %><br>
