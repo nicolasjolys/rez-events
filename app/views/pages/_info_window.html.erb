@@ -1,7 +1,8 @@
-
-
-<div>
+<div class="popup-map">
   <%= link_to event_path(event) do %>
+    <div class="<%= category_name_to_color(event.category) %>">
+      <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-3x"></i>
+    </div>
     <%= event.name %>
     <br>
     <%= event.address %>

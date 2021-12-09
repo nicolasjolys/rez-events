@@ -12,8 +12,7 @@ class PagesController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { event: event }),
-        # image_url: helpers.asset_url("#{event.category}.svg")
+        info_window: render_to_string(partial: "info_window", locals: { event: event })
       }
     end
   end
