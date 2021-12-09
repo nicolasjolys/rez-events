@@ -8,6 +8,12 @@
   color: #0F2C67 !important;
   border: 1px solid #0F2C67;
 }
+
+.show-picture img{
+  width: 500px !important;
+
+}
+
 .card {
 
   border: none;
@@ -152,7 +158,7 @@
     .icone {
       height: 100%;
       color: #7979DE;
-      width: 4rem;
+      min-width: 4rem;
       place-content: center;
       display: grid;
     }
