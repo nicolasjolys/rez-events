@@ -1,13 +1,11 @@
 <div class="home-banner">
-<div>
-</div>
   <h1>Tous les évènements de Rezé!</h1>
   <div>
     <%= render "shared/search" %>
   </div>
 </div>
 
-<div class="home-container container">
+<div class="home-container container-fluid">
   <div class="row">
     <div class="col-8">
       <div class="container-fluid preventstyle" id="accordion">
@@ -30,7 +28,7 @@
                     <div class="info-localisation mr-5 text-left">
                       <div class="address d-flex align-items-center mx-3 pb-2">
                         <p class="mb-0"><i class="fas fa-map-marker-alt mr-1"></i><%= event.address %></p>
-                        <p class="mb-0 p-1 ml-3 text-center district"><%= event.district %></p>
+                        <p class="mb-0 p-1 ml-3 text-center district">Quartier <%= event.district %></p>
                       </div>
                     </div>
                   </div>

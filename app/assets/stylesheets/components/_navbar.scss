@@ -1,11 +1,7 @@
 .navbar {
   justify-content: space-between;
   background: white;
-  border-bottom: #CD1818 1px solid;
   box-shadow: 0 1px 1px -1px $primary-blue;
-;
-
-  // outline: #F4E185 5px solid;
   width: 100vw;
   margin: auto;
   .navbar-brand {
@@ -15,5 +11,86 @@
   }
   .navbar-link {
     color: $primary-blue;
+  }
+  a {
+    text-decoration: none;
+  }
+  p {
+    margin: 0;
+  }
+  .event {
+    background-color: darkslateblue;
+    border: 2px solid darkslateblue;
+    padding: .5rem 2rem;
+    width: fit-content;
+    border-radius: .7rem;
+    margin-right: 2rem;
+    color: white;
+    transition: .4s
+  }
+  .event:hover {
+      background-color: white;
+      color: darkslateblue;
+      transition: .4s
+  }
+
+  .dash {
+    padding: .5rem 2rem;
+    width: fit-content;
+    border-radius: .7rem;
+    color: darkslateblue;
+    opacity: .6;
+    transition: .4s
+  }
+  .dash:hover {
+      opacity: 1;
+      transition: .4s
+  }
+  .inbox-events {
+
+    ;
+    // color: white;
+    // height: 1rem;
+    // width: 1rem;
+    // margin: .1rem;
+  }
+
+  .nav-admin-events {
+
+    display: flex;
+    align-items: center;
+    span {
+      margin-top: 0.1rem;
+      margin: 0.2rem;
+      font-weight: 900;
+      color: white;
+      font-weight: 900;
+      font-size: .8rem;
+      padding: .4rem .6rem;
+      // background-color: #F3950D;
+      background-color: #0F2C67;
+      border-radius: 50%;
+      box-shadow: inset 0px 0px 1px 1px rgba(255,255,255,0.89);
+      line-height: 1;
+    }
+  }
+
+  .greying:hover {
+    span {
+      color: grey;
+      transition: .4s;
+    }
+      color: grey;
+      transition: .4s;
+  }
+
+  .new-event {
+    border: 1px solid #0F2C67;
+    border-radius: 4px;
+    transition: border 1s;
+
+  }
+  .new-event:hover {
+    border: 0px;
   }
 }

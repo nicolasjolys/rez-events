@@ -3,20 +3,37 @@
 
   <% if user_signed_in? && current_user.city_hall_admin? %>
     <% pending_events =  Event.where(:status => 'pending').count %>
-    <%= link_to "Evénements à valider (#{pending_events})", agent_admin_events_path, class: "navbar-link" %>
+    <%= link_to  agent_admin_events_path, class: "navbar-link" do %>
+    <div class="nav-admin-events greying">
+       <p> Evénements à valider </p>
+      <span class="inbox-events">
+        <%= pending_events %>
+      </span>
+    </div>
+    <% end %>
   <% end %>
 
   <% if user_signed_in? && current_user.role == "city_hall_agent" %>
     <% upcoming_events =  Event.where(:status => 'accepted').count %>
-    <%= link_to "Evénements à venir (#{upcoming_events})", agent_events_path, class: "navbar-link" %>
+    <%= link_to "Evénements à venir", agent_events_path, class: "navbar-link greying" %>
   <% end %>
 
-  <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-link" %>
+  <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-link greying new-event btn" %>
 
   <% if user_signed_in? %>
-    <%= link_to "Mes événements", my_events_path, class: "navbar-link" %>
-    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "navbar-link" %>
+    <% my_events = current_user.events.count %>
+    <%= link_to my_events_path, class: "navbar-link" do %>
+    <div class="nav-admin-events greying">
+      <p> Mes évènements </p>
+      <span class="inbox-events">
+        <%= my_events %>
+      </span>
+    </div>
+    <% end %>
+
+
+    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "navbar-link greying" %>
   <% else %>
-    <%= link_to "Connexion", new_user_session_path, class: "navbar-link" %>
+    <%= link_to "Connexion", new_user_session_path, class: "navbar-link greying" %>
   <% end %>
 </div>
