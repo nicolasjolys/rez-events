@@ -4,124 +4,175 @@
 
 <div class="container-fluid mb-5" id="accordion">
   <% @events.each do |event| %>
-    <div class="card mx-auto mt-4" >
-      <div class="card-header d-flex justify-content-between align-items-center btn p-0" data-controller="collapse-radius">
-        <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
-          <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-4x"></i>
-        </div>
+    <%# CARD %>
+    <div class="d-flex align-items-start justify-content-center mx-auto">
+      <div class="card index-cards mx-auto mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center btn p-0" data-controller="collapse-radius">
+          <div class="d-flex align-items-center">
+            <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
+              <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-4x"></i>
+            </div>
 
-        <div class="info-event-header d-flex flex-column" id="heading<%= event.id %>" data-collapse-radius-target="collapseLink" data-action="click->collapse-radius#next" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-          <div class="info-header text-left p-3">
-            <h4 class="bold"><%= event.name %></h4>
-            <h5><%= event.organization_name %></h5>
-          </div>
-          <div class="info-localisation mr-5 text-left">
-            <div class="address d-flex align-items-center mx-3 pb-2">
-              <i class="fas fa-map-marker-alt fa-lg mb-0 mr-1"></i>
-              <p class="m-0 mr-4 clear-text"><%= event.address %></p>
-              <p class="mb-0 district"><%= event.district %></p>
+            <div class="info-event-header d-flex flex-column" id="heading<%= event.id %>" data-collapse-radius-target="collapseLink" data-action="click->collapse-radius#next" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
+              <div class="info-header text-left p-3">
+                <h4 class="bold"><%= event.name %></h4>
+                <h5><%= event.organization_name %></h5>
+              </div>
+              <div class="info-localisation mr-5 text-left">
+                <div class="address d-flex align-items-center mx-3 pb-2">
+                  <i class="fas fa-map-marker-alt fa-lg mb-0 mr-1"></i>
+                  <p class="m-0 mr-4 clear-text"><%= event.address %></p>
+                  <p class="mb-0 district"><%= event.district %></p>
+                </div>
+              </div>
+              <i class="fas fa-chevron-down text-center"></i>
             </div>
           </div>
-          <i class="fas fa-chevron-down text-center"></i>
+          <div class="d-flex flex-column mr-3">
+            <div class="participants p-1 ml-auto mb-3">
+              <span class="text-white"><%= event.participants.count %></span>
+              <i class="fas fa-users fa-lg p-1"></i>
+          </div>
+            <% if event.participants.pluck(:id).include?(current_user.id) %>
+              <% evt =  EventParticipation.find_by(user_id: current_user.id, event_id: event.id) %>
+              <div class="i-not-participate">
+                <%= link_to "Je participe", agent_event_participation_path(evt.id), method: :delete, class: "mb-2 text-black" %>
+                <i class="fas fa-thumbs-up fa-sm ml-2"></i>
+              </div>
+            <% else %>
+              <div class='i-participate'>
+                <%= link_to "Je participe!", agent_event_event_participations_path(event), method: :post, class: "mb-2" %>
+              </div>
+            <% end %>
+          </div>
         </div>
 
-        <div class="d-flex flex-column mr-3">
-          <div class="participants p-1 ml-auto mb-3">
-            <span class="text-white"><%= event.participants.count %></span>
-            <i class="fas fa-users fa-lg p-1"></i>
-        </div>
-          <% if event.participants.pluck(:id).include?(current_user.id) %>
-            <% evt =  EventParticipation.find_by(user_id: current_user.id, event_id: event.id) %>
-            <div class="i-not-participate">
-              <%= link_to "Je participe", agent_event_participation_path(evt.id), method: :delete, class: "mb-2 text-black" %>
-              <i class="fas fa-thumbs-up fa-sm ml-2"></i>
+        <%# COLLAPSE %>
+        <div id="collapse<%= event.id%>" class="collapse" aria-labelledby="heading<%= event.id%>" data-parent="#accordion">
+          <div class="card-body d-flex justify-content-between">
+            <div class="d-flex collapse-all">
+              <%# LEFT %>
+              <div class="infos-event">
+                <%# DESC %>
+                <div class="public-comment d-flex">
+                  <div class="icone <%= category_name_to_color(event.category) %>">
+                    <i class="fas fa-info-circle fa-2x"></i>
+                  </div>
+                  <div class="public-infos text-left mb-5">
+                    <p class="bold">Description</p>
+                    <p class="category <%= category_name_to_color(event.category) %>"><%= event.category %></p>
+                    <p class="secondary-info"><%= event.public_description %></p>
+                  </div>
+                </div>
+                <%# TARFIS %>
+                <div class="infos-utiles d-flex mb-5">
+                  <div class="icone <%= category_name_to_color(event.category) %>">
+                    <i class="fas fa-euro-sign fa-2x"></i>
+                  </div>
+                  <div class="utiles-info">
+                    <p class="bold">Tarif</p>
+                    <p><%= event.pricing_description %></p>
+                  </div>
+                </div>
+                <%# CONTACT %>
+                <div class="infos-referent d-flex mb-5">
+                  <div class="icone <%= category_name_to_color(event.category) %>">
+                    <i class="fas fa-address-card fa-2x"></i>
+                  </div>
+                  <div class="referent-infos">
+                    <p class="bold">Contact</p>
+                    <p class="referent-name"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
+                    <p class="secondary-info"><%= event.contact_email %></p>
+                    <p class="secondary-info referent-num"><%= event.contact_phone_number %></p>
+                  </div>
+                </div>
+              </div>
+              <%# RIGHT %>
+              <div class="logistique text-center">
+                <%# SECU %>
+                <div class="infos-securite d-flex">
+                  <div class="icone secu">
+                    <i class="fas fa-exclamation-triangle fa-2x"></i>
+                  </div>
+                  <div class="text-left mb-5">
+                    <p class="bold secu">Description</p>
+                    <p class="mb-0 secondary-info"><%= event.required_safety_level %></p>
+                  </div>
+                </div>
+
+                <%# MATOS %>
+                <div class="infos-matos mt-4">
+                  <% if event.equipment_requested? %>
+                    <div class="infos-matos d-flex">
+                      <div class="icone <%= category_name_to_color(event.category) %>">
+                        <i class="fas fa-cog fa-2x"></i>
+                      </div>
+                      <div class="text-left mb-5">
+                        <p class="bold secu">Demande de matériel</p>
+                        <p class="mb-0 secondary-info"><%= event.requested_equipment_description %></p>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="infos-matos d-flex">
+                      <div class="icone <%= category_name_to_color(event.category) %>">
+                        <i class="fas fa-cog fa-2x"></i>
+                      </div>
+                      <div class="text-left mb-5">
+                        <p class="bold secu">Demande de matériel</p>
+                        <p class="mb-0 secondary-info">Aucune demande</p>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                <%# REMARQUES %>
+                <div class="remarques mt-4">
+                  <% if event.general_comment? %>
+                    <div class="infos-matos d-flex">
+                      <div class="icone <%= category_name_to_color(event.category) %>">
+                        <i class="fas fa-comment fa-2x"></i>
+                      </div>
+                      <div class="text-left mb-5">
+                        <p class="bold secu">Commentaires</p>
+                        <p class="mb-0 secondary-info"><%= event.general_comment %></p>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="infos-matos d-flex">
+                      <div class="icone <%= category_name_to_color(event.category) %>">
+                        <i class="fas fa-comment fa-2x"></i>
+                      </div>
+                      <div class="text-left mb-5">
+                        <p class="bold secu">Commentaires</p>
+                        <p class="mb-0 secondary-info">Pas de commentaires</p>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
-          <% else %>
-            <div class='i-participate'>
-              <%= link_to "Je participe!", agent_event_event_participations_path(event), method: :post, class: "mb-2" %>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="info-dates d-flex border-radius-collapse" data-collapse-radius-target="greenSquare">
-          <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
-            <%= l(event.start_at, format: "%^a") %>
-            <%= l(event.start_at, format: "%e") %>
-            <%= l(event.start_at, format: "%^b") %> <br>
-            <%= l(event.start_at, format: "%HH%M") %> À
-            <%= l(event.end_at, format: "%HH%M") %>
-          <% else %>
-            <%= l(event.start_at, format: "%^a") %>
-            <%= l(event.start_at, format: "%e") %>
-            <%= l(event.start_at, format: "%^b") %> À
-            <%= l(event.start_at, format: "%HH%M") %><br>
-            AU <br>
-            <%= l(event.end_at, format: "%^a") %>
-            <%= l(event.end_at, format: "%e") %>
-            <%= l(event.end_at, format: "%^b") %> À
-            <%= l(event.end_at, format: "%HH%M") %><br>
-
-          <% end %>
+          </div>
         </div>
       </div>
+      <%# DATES %>
+      <div class="info-dates mt-4 flex-grow-1 align-items-center justify-content-center d-flex border-radius-collapse" data-collapse-radius-target="greenSquare">
+        <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
+          <%= l(event.start_at, format: "%^a") %>
+          <%= l(event.start_at, format: "%e") %>
+          <%= l(event.start_at, format: "%^b") %> <br>
+          <%= l(event.start_at, format: "%HH%M") %> À
+          <%= l(event.end_at, format: "%HH%M") %>
+        <% else %>
+          <%= l(event.start_at, format: "%^a") %>
+          <%= l(event.start_at, format: "%e") %>
+          <%= l(event.start_at, format: "%^b") %> À
+          <%= l(event.start_at, format: "%HH%M") %><br>
+          AU <br>
+          <%= l(event.end_at, format: "%^a") %>
+          <%= l(event.end_at, format: "%e") %>
+          <%= l(event.end_at, format: "%^b") %> À
+          <%= l(event.end_at, format: "%HH%M") %><br>
 
-      <div id="collapse<%= event.id%>" class="collapse" aria-labelledby="heading<%= event.id%>" data-parent="#accordion">
-        <div class="card-body d-flex justify-content-between">
-          <div class="d-flex collapse-all">
-            <div class="infos-event">
-              <div class="public-comment d-flex">
-                <div class="icone <%= category_name_to_color(event.category) %>">
-                  <i class="fas fa-info-circle fa-2x"></i>
-                </div>
-                <div class="public-infos text-left mb-5">
-                  <p class="bold"><%= event.category %></p>
-                  <p class="secondary-info"><%= event.public_description %></p>
-                </div>
-              </div>
-              <div class="infos-utiles d-flex mb-5">
-                <div class="icone <%= category_name_to_color(event.category) %>">
-                  <i class="fas fa-euro-sign fa-2x"></i>
-                </div>
-                <div class="utiles-info">
-                  <h6 utiles-infos>Tarif</h6>
-                  <p><%= event.pricing_description %></p>
-                </div>
-              </div>
-              <div class="infos-referent d-flex mb-5">
-                <div class="icone <%= category_name_to_color(event.category) %>">
-                  <i class="fas fa-address-card fa-2x"></i>
-                </div>
-                <div class="referent-infos">
-                  <p class="font-weight-bold"><%= event.contact_last_name.capitalize %> <%= event.contact_first_name.capitalize %></p>
-                  <p class="secondary-info"><%= event.contact_email %></p>
-                  <p class="secondary-info"><%= event.contact_phone_number %></p>
-                </div>
-              </div>
-            </div>
-            <div class="logistique text-center">
-              <div class="infos-securite">
-                <p class="mb-0"><%= event.required_safety_level %></p>
-              </div>
-              <div class="infos-matos mt-4">
-                <% if event.equipment_requested? %>
-                  <h6>Demande de matériel</h6>
-                  <p class="text-infos p-3"><%= event.requested_equipment_description %></p>
-                <% else %>
-                  <h6>Pas de demande de matériel</h6>
-                <% end %>
-              </div>
-              <div class="remarques mt-4">
-                <% if event.general_comment? %>
-                <h6>Commentaires</h6>
-                <p class="text-infos p-3"><%= event.general_comment %></p>
-                <% else %>
-                <h6>Pas de commentaire</h6>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="info-dates"></div>
-        </div>
+        <% end %>
       </div>
     </div>
   <% end %>

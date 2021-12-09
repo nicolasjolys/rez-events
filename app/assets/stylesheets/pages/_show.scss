@@ -1,27 +1,41 @@
 .show-global-container {
-
-.test {
-}
-.show-picture {
-  max-width: 200px;
-}
-
   flex-direction: row;
+
   .card {
     box-shadow: 1px 1px 3px 1px rgba(15,44,103,0.33);
-
   }
-
 
   #map {
     position: relative;
-    // height: 100px;
+    border-radius: 10px !important;
   }
-  // img {
-  //   max-width: 594px;
-  // }
+
   .map-show {
-    // height: 100px;
+    border-radius: 12px;
+  }
+
+  .catego-name {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .date-show {
+    font-weight: bold;
+  }
+
+  .show-picture img {
+    border-radius: .7rem;
+    width: 25rem !important;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .title {
+    text-transform: uppercase;
+  }
+
+  .orga-name {
+    color: gray;
   }
 }
 

@@ -2,30 +2,19 @@
 
 <div class="show-global-container d-flex">
   <div class="container-fluid m-5 d-flex">
-      <div class="card col-8" >
+      <div class="card col-8 p-3" >
         <div class="card-header d-flex justify-content-between align-items-center btn p-0">
-          <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
-            <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-4x"></i>
-          </div>
-
-          <div class="info-event-header d-flex flex-column" id="heading<%= event.id %>" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-            <div class="info-header text-left p-3">
-              <h4 class="bold mb-0"><%= event.name %></h4>
-              <h5 class="mb-0"><%= event.organization_name %></h5>
+          <div class="d-flex align-items-center pl-4">
+            <div class="text-center <%= category_name_to_color(event.category) %>">
+              <i class="fas <%= category_name_to_fa_class_name(event.category) %> fa-4x"></i>
             </div>
-            <div class="info-localisation mr-5 text-left">
-              <div class="address d-flex align-items-center mx-3 pb-2">
-                <i class="fas fa-map-marker-alt fa-lg mb-0 mr-1"></i>
-                <p class="m-0 mr-4 clear-text"><%= event.address %></p>
-                <p class="mb-0 district"><%= event.district %></p>
-              </div>
-            </div>
+            <p class="m-0 catego-name pl-4 <%= category_name_to_color(event.category) %>"><%= event.category %></p>
           </div>
-
-          <div class="info-dates d-flex home-font-date">
+          <%# DATES %>
+          <div class="info-dates d-flex home-font-date pr-4">
             <div class="info-dates d-flex bold home-font-date">
               <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
-                <%= l(event.start_at, format: "%^a") %>
+                <p><%= l(event.start_at, format: "%^a") %>
                 <%= l(event.start_at, format: "%e") %>
                 <%= l(event.start_at, format: "%^b") %> <br>
                 <%= l(event.start_at, format: "%HH%M") %> À
@@ -44,52 +33,65 @@
             </div>
           </div>
         </div>
+        <%# INFOS HEADER %>
+        <div class="info-event-header d-flex flex-column pl-4">
+          <div class="info-header text-left pb-4">
+            <h4 class="bold title mb-0"><%= event.name %></h4>
+            <p class="mb-0 orga-name">Association des souris verte</p>
+            <p class="mb-0 orga-name"><%= event.organization_name %></p>
+          </div>
+        </div>
 
+        <%# INFOS FOOTER %>
         <div>
           <div class="card-body">
             <div class="d-flex">
-
-              <div class="show-picture">
+              <%# PHOTO %>
+              <div class="show-picture pl-4 pb-4">
                 <% if event.photo.key? %>
                   <%= cl_image_tag event.photo.key %>
                 <% end %>
               </div>
-
-              <div class="infos-event">
-
+              <%# DESC %>
+              <div class="infos-event show-infos-event p-3">
                 <div class="public-comment d-flex">
                   <div class="icone <%= category_name_to_color(event.category) %>">
                     <i class="fas fa-info-circle fa-2x"></i>
                   </div>
-
                   <div class="public-infos text-left mb-5">
-                    <p class="bold"><%= event.category %></p>
+                    <p class="bold">Description</p>
                     <p class="secondary-info"><%= event.public_description %></p>
                   </div>
                 </div>
-
+                <%# TARIFS %>
                 <div class="infos-utiles d-flex mb-5">
                   <div class="icone <%= category_name_to_color(event.category) %>">
                     <i class="fas fa-euro-sign fa-2x"></i>
                   </div>
-
                   <div class="utiles-info">
-                    <h6 utiles-infos>Tarif</h6>
-                    <p><%= event.pricing_description %></p>
+                    <p class="bold">Tarif</p>
+                    <p class="secondary-info"><%= event.pricing_description %></p>
+                  </div>
+                </div>
+                <%# ADDRESS %>
+                <div class="info-localisation d-flex">
+                  <div class="icone <%= category_name_to_color(event.category) %>">
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                  </div>
+                  <div>
+                    <p class="m-0 mr-4 clear-text secondary-info"><%= event.address %></p>
+                    <p class="mb-0 district secondary-info"><%= event.district %></p>
                   </div>
                 </div>
 
               </div>
-
-
             </div>
-
           </div>
         </div>
       </div>
-      <div class="test col-4">
-                <div id="map" class="map-show"
-                  style="width: 100%; height: 100%;"
+      <div class="test col-4 rounded">
+                <div id="map" class="map-show rounded"
+                  style="width: 100%; height: 100%; border-radius: 12px;"
                   data-markers="<%= @markers.to_json %>"
                   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
                 </div>
