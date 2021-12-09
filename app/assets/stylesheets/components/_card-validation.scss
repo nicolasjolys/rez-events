@@ -304,3 +304,12 @@
   letter-spacing: 7px !important;
   color: grey;
 }
+
+.declined-explanation {
+  h6 {
+    background-color: $danger;
+    border-radius: 10px 10px 0 0;
+    padding: 1em;
+    margin-bottom: 0;
+  }
+}

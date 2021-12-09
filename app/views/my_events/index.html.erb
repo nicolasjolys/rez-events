@@ -43,7 +43,7 @@
             <% end %>
           </div>
 
-          <div class="status-event d-flex pb-3">
+          <div class="status-event d-flex justify-content-end pb-3 pr-3">
             <% if event.status == "pending" %>
               <p>En attente de validation</p>
               <i class="fas fa-circle fa-xs pending"></i>
@@ -130,17 +130,22 @@
                 <% end %>
               </div>
               <div class="remarques mt-4">
-              <% if event.general_comment? %>
-                <h6>Commentaires</h6>
-                <p class="text-infos p-3"><%= event.general_comment %></p>
+                <% if event.general_comment? %>
+                  <h6>Commentaires</h6>
+                  <p class="text-infos p-3"><%= event.general_comment %></p>
                 <% else %>
-                <h6>Pas de commentaire</h6>
+                  <h6>Pas de commentaire</h6>
+                <% end %>
+              </div>
+              <div class="declined-explanation mt-4">
+                <% if event.status == "declined" %>
+                  <h6 class="text-white">Motif de refus</h6>
+                  <p class="text-infos p-3"><%= event.declined_explanation %></p>
                 <% end %>
               </div>
             </div>
           </div>
           <div class="info-dates">
-
           </div>
         </div>
       </div>
