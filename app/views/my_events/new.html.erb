@@ -7,7 +7,7 @@
         <%= f.input :name, label: "Nom de l'évènement", :input_html => { :class => 'uppercase' }, :input_html => { :maxlength => 140 } %>
         <%= f.input :address, label: "Adresse de l'évènement" %>
         <%= f.input :district, label: "Quartier", collection: @DISTRICTS %>
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
           <%= f.input :start_at, label: "Date de début", as: :datetime, html5: true %>
           <%= f.input :end_at, label: "Date de fin", as: :datetime, html5: true %>
         </div>
