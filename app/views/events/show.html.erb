@@ -21,11 +21,7 @@
               </div>
             </div>
           </div>
-          <div class="home-pictures">
-            <% if event.photo.key? %>
-              <%= cl_image_tag event.photo.key %>
-            <% end %>
-          </div>
+
           <div class="info-dates d-flex home-font-date">
             <div class="info-dates d-flex bold home-font-date">
               <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
@@ -50,34 +46,44 @@
         </div>
 
         <div>
-          <div class="card-body d-flex justify-content-between">
+          <div class="card-body">
             <div class="d-flex">
+
+              <div class="show-picture">
+                <% if event.photo.key? %>
+                  <%= cl_image_tag event.photo.key %>
+                <% end %>
+              </div>
+
               <div class="infos-event">
+
                 <div class="public-comment d-flex">
                   <div class="icone <%= category_name_to_color(event.category) %>">
                     <i class="fas fa-info-circle fa-2x"></i>
                   </div>
+
                   <div class="public-infos text-left mb-5">
                     <p class="bold"><%= event.category %></p>
                     <p class="secondary-info"><%= event.public_description %></p>
                   </div>
                 </div>
+
                 <div class="infos-utiles d-flex mb-5">
                   <div class="icone <%= category_name_to_color(event.category) %>">
                     <i class="fas fa-euro-sign fa-2x"></i>
                   </div>
+
                   <div class="utiles-info">
                     <h6 utiles-infos>Tarif</h6>
                     <p><%= event.pricing_description %></p>
                   </div>
                 </div>
-          <div class="show-picture">
-            <% if event.photo.key? %>
-              <%= cl_image_tag event.photo.key %>
-            <% end %>
-          </div>
+
               </div>
+
+
             </div>
+
           </div>
         </div>
       </div>
