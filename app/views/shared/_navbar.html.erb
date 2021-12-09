@@ -1,39 +1,51 @@
-<div class="navbar">
-  <%= link_to "Rez'events", root_path, class: "navbar-brand" %>
+<ul class="navbar">
+  <li>
+    <%= link_to "Rez'events", root_path, class: "navbar-brand" %>
+  </li>
 
-  <% if user_signed_in? && current_user.city_hall_admin? %>
-    <% pending_events =  Event.where(:status => 'pending').count %>
-    <%= link_to  agent_admin_events_path, class: "navbar-link" do %>
-    <div class="nav-admin-events greying">
-       <p> Evénements à valider </p>
-      <span class="inbox-events">
-        <%= pending_events %>
-      </span>
-    </div>
+  <li>
+    <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-link new-event btn" %>
+  </li>
+
+  <li class="inactive-link <%= 'active-link' if current_page?(agent_admin_events_path) %>">
+    <% if user_signed_in? && current_user.city_hall_admin? %>
+      <% pending_events =  Event.where(:status => 'pending').count %>
+      <%= link_to  agent_admin_events_path, class: "navbar-link" do %>
+        <div class="nav-admin-events">
+          <p>À valider </p>
+          <span class="inbox-events">
+            <%= pending_events %>
+          </span>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </li>
 
-  <% if user_signed_in? && current_user.role == "city_hall_agent" %>
-    <% upcoming_events =  Event.where(:status => 'accepted').count %>
-    <%= link_to "Evénements à venir", agent_events_path, class: "navbar-link greying" %>
-  <% end %>
-
-  <%= link_to "Proposer un événement", new_my_event_path, class: "navbar-link greying new-event btn" %>
-
-  <% if user_signed_in? %>
-    <% my_events = current_user.events.count %>
-    <%= link_to my_events_path, class: "navbar-link" do %>
-    <div class="nav-admin-events greying">
-      <p> Mes évènements </p>
-      <span class="inbox-events">
-        <%= my_events %>
-      </span>
-    </div>
+  <li class=" inactive-link <%= 'active-link' if current_page?(agent_events_path) %>">
+    <% if user_signed_in? && current_user.role == "city_hall_agent" %>
+      <% upcoming_events =  Event.where(:status => 'accepted').count %>
+      <%= link_to "Agenda", agent_events_path, class: "navbar-link" %>
     <% end %>
+  </li>
 
 
-    <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "navbar-link greying" %>
-  <% else %>
-    <%= link_to "Connexion", new_user_session_path, class: "navbar-link greying" %>
-  <% end %>
-</div>
+  <li class="inactive-link <%= 'active-link' if current_page?(my_events_path) %>">
+    <% if user_signed_in? %>
+      <% my_events = current_user.events.count %>
+      <%= link_to my_events_path, class: "navbar-link" do %>
+        <div class="nav-admin-events">
+          <p> Mes évènements </p>
+          <span class="inbox-events">
+            <%= my_events %>
+          </span>
+        </div>
+      <% end %>
+    </li>
+
+  <li>
+      <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "navbar-link" %>
+    <% else %>
+      <%= link_to "Connexion", new_user_session_path, class: "navbar-link" %>
+    <% end %>
+  </li>
+</ul>
