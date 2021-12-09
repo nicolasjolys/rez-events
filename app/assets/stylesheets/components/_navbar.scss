@@ -1,7 +1,8 @@
 .navbar {
   justify-content: space-between;
   background: white;
-  box-shadow: 0 1px 1px -1px $primary-blue;
+  box-shadow: 1px 1px 1px 1px rgba(15,44,103,0.27)
+;
   width: 100vw;
   margin: auto;
   .navbar-brand {

@@ -161,9 +161,9 @@ puts "event2 creation"
 event2 = Event.create!(
   user: organization2,
   name: "Match de football",
-  public_description: "Finale départementale",
+  public_description: "Finale départementale U-12. Rezé Football Club reçoit pour la première fois l'équipe U-12 du Saint-Nazaire FC",
   district: "Château La Houssais",
-  address: "Stade léo lagrange, rezé",
+  address: "Stade léo lagrange, Rezé",
   category: "Sport",
   start_at: Time.new(2021, 12, 12, 10, 30),
   end_at: Time.new(2021, 12, 12, 13),
@@ -174,7 +174,7 @@ event2 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Accès au stade gratuit, buvette payante",
   equipment_requested: true,
-  requested_equipment_description: "Un podium pour la remise des prix",
+  requested_equipment_description: "Un podium et une sono pour la remise des prix",
   status: "pending"
 )
 
@@ -194,7 +194,7 @@ puts "event3 creation"
 event3 = Event.create!(
   user: admin1,
   name: "Débat sur le réchauffement climatique",
-  public_description: "Echange animé par les élus autour des améliorations possible",
+  public_description: "Echange animé par les élus autour sur les mesures de lutte contre le réchauffement climatique à l'échelle municipale.",
   district: "Pont-Rousseau",
   address: "Avenue des treilles, 44000 Rezé",
   category: "Developpement durable",
@@ -227,7 +227,7 @@ puts "event4 creation"
 event4 = Event.create!(
   user: agent2,
   name: "Education pour tous",
-  public_description: "Atelier autour de l'éducation",
+  public_description: "Atelier d'éducation populaire avec des intervenants de l'association Éduc'Pop Nantes. Ouvert à tous à partir de 4 ans, accès PMR",
   district: "Trentemoult-les Isles",
   address: "Rue Jean Louis, 44000 Rezé",
   category: "Education-Jeunesse",
@@ -238,7 +238,7 @@ event4 = Event.create!(
   contact_email: agent2.email,
   contact_phone_number: agent2.phone_number,
   required_safety_level: "Niveau 1 - Manifestation de moins de 1500 personnes",
-  pricing_description: "Gratuit",
+  pricing_description: "Gratuit, dons bienvenus pour l'association",
   status: "pending"
 )
 
@@ -260,7 +260,7 @@ puts "event5 creation"
 event5 = Event.create!(
   user: admin1,
   name: "Marathon de Rezé",
-  public_description: "Marathon annuel de la ville de Rezé",
+  public_description: "Marathon annuel de la ville de Rezé. Le circuit part du Quartier Pont-Rousseau et passe par les 7 quartiers de Rezé. Prix pour les 20 premiers coureurs.",
   district: "Pont-Rousseau",
   address: "Pont-Rousseau 44000 Rezé",
   category: "Sport",
@@ -272,7 +272,7 @@ event5 = Event.create!(
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 3 - Manifestation de plus de 5000 personnes',
-  pricing_description: "Coureurs : 25€ le dossard",
+  pricing_description: "Coureurs : 25€ le dossard. Gratuit pour les spectateurs. Buvette au départ et à l'arrivée.",
   status: "pending",
   equipment_requested: true,
   requested_equipment_description: "Barrières de sécurité, podium, barnums, tables et chaises",
@@ -296,7 +296,7 @@ puts "event6 creation"
 event6 = Event.create!(
   user: admin1,
   name: "Distribution de repas",
-  public_description: "Distribution de repas chauds pour les plus démunis",
+  public_description: "Distribution de repas chauds pour les plus démunis. Les bénévoles de l'association Rezé Solidaire cuisinerons avec les légumes invendus du marché",
   district: "Pont-Rousseau",
   address: "Rue Bessac, 44000 Rezé",
   category: "Solidarité",
@@ -328,7 +328,7 @@ puts "event7 creation"
 event7 = Event.create!(
   user: admin1,
   name: "Bal d'hiver zumba",
-  public_description: "Venez danser jusqu'au bout de la nuit!",
+  public_description: "Venez danser jusqu'au bout de la nuit! Costumé, masqué. Maquillage sur place pour les enfants.",
   district: "Pont-Rousseau",
   address: "Rue viau, 44000 Rezé",
   category: "Culture",
@@ -359,7 +359,7 @@ puts "event8 creation"
 event8 = Event.create!(
   user: admin1,
   name: "Atelier maman et bébé",
-  public_description: "Partage autour de l'accompagnement du nourrisson",
+  public_description: "Partage autour de l'accompagnement du nourrisson. Allaitement, sommeil, premiers pas",
   district: "Pont-Rousseau",
   address: "Rue Viau, 44000 Rezé",
   category: "Petite enfance",
@@ -371,7 +371,7 @@ event8 = Event.create!(
   contact_email: admin1.email,
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
-  pricing_description: "Gratuit",
+  pricing_description: "7 euros, adhésion à l'association Maman sereine",
   status: "pending",
   accepted_at: Date.today
 )
