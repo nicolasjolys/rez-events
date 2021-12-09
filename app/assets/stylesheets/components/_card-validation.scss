@@ -13,12 +13,14 @@
   width: 500px !important;
 
 }
+.index-cards {
+  margin-left: 5rem !important;
+}
 
 .card {
-
   border: none;
   border-radius: 10px;
-  width: 70rem;
+  width: 70%;
   padding-right: 0;
 
   .card-header {
@@ -151,40 +153,50 @@
     }
   }
 
+  .cat {
+    margin: 0;
+  }
+
   .card-body {
     padding: 0;
-    width: 70rem;
+    // width: 70rem;
+      height: 100%;
+  .info-dates {
+      width: 8rem;
+      background-color: #94BF1A;
+      height: auto;
+      border-bottom-right-radius: 10px;
+    }
 
     .icone {
       height: 100%;
-      color: #7979DE;
       min-width: 4rem;
       place-content: center;
       display: grid;
     }
 
-    .category {
-      color: #7979DE;
-    }
-    .fa-euro-sign {
-      color: #7979DE;
-      opacity: 0.7;
-    }
+    // .category {
+    //   color: #7979DE;
+    // }
+    // .fa-euro-sign {
+    //   color: #7979DE;
+    //   opacity: 0.7;
+    // }
 
-    .utiles-info h6 {
-      color: #7979DE;
-      opacity: 0.7;
-    }
+    // .utiles-info h6 {
+    //   color: #7979DE;
+    //   opacity: 0.7;
+    // }
 
-    .fa-address-card {
-      color: #7979DE;
-      opacity: 0.4;
-    }
+    // .fa-address-card {
+    //   color: #7979DE;
+    //   opacity: 0.4;
+    // }
 
-    .referent-name, .referent-num {
-      color: #7979DE;
-      opacity: 0.5;
-    }
+    // .referent-name, .referent-num {
+    //   color: #7979DE;
+    //   opacity: 0.5;
+    // }
 
     .collapse-all {
       width: 62rem;
@@ -203,10 +215,7 @@
     }
 
     .infos-securite {
-      border-radius: 10px;
-      padding: 0.8em;
-      box-shadow: 1px 3px 1px lightgray;
-      p {
+      .secu {
         color: #EB5353;
       }
     }
@@ -233,13 +242,7 @@
 }
 
 .card-body {
-  height: 100%;
-  .info-dates {
-      width: 8rem;
-      background-color: #94BF1A;
-      height: auto;
-      border-bottom-right-radius: 10px;
-    }
+
 }
 
 .card-home {
@@ -331,4 +334,8 @@
     padding: 1em;
     margin-bottom: 0;
   }
+}
+
+.show-infos-event {
+
 }
