@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       sql_query = "name ILIKE :query OR public_description ILIKE :query OR category ILIKE :query"
       @events = Event.where(sql_query, query: "%#{params[:query]}%")
     else
-      @events = Event.all
+      @events = Event.all.where(status: "accepted")
     end
     @markers = @events.geocoded.map do |event|
       {
