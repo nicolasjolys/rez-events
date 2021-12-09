@@ -10,7 +10,21 @@
   border-radius: 8px;
 }
 
+    .list-participants {
+      display: none;
+      padding: 5px;
+      border: 1px lightyellow solid;
+      border-radius: 10px;
+      background-color: lightyellow;
+      position: absolute;
+      bottom: 100px;
+      right: 80px;
+      font-size: 0.8rem;
+      p {
+        margin-bottom: 0;
+      }
+    }
 
-.event-participants {
-  
-}
+    .participants:hover + .list-participants {
+      display: block;
+    }
