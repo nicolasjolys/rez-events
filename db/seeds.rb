@@ -39,6 +39,18 @@ admin2 = User.create!(
   city_hall_admin: true
 )
 
+puts "Admin3 creation"
+
+admin3 = User.create!(
+  first_name: "Nicolas",
+  last_name: "Jolys",
+  email: "nicolas@mail.fr",
+  password: "secret",
+  phone_number: "0695122417",
+  role: "city_hall_agent",
+  city_hall_admin: true
+)
+
 puts "Agent1 creation"
 
 agent1 = User.create!(
@@ -70,6 +82,7 @@ agent3 = User.create!(
   last_name: "Moreau",
   email: "jeanne@mail.fr",
   password: "secret",
+  main_organization_name: "Mairie de Rezé",
   phone_number: "0606060606",
   role: "city_hall_agent",
   city_hall_admin: false
@@ -160,7 +173,7 @@ puts "event2 creation"
 
 event2 = Event.create!(
   user: organization2,
-  name: "Match de football",
+  name: "Match de football, finale U-12",
   public_description: "Finale départementale U-12. Rezé Football Club reçoit pour la première fois l'équipe U-12 du Saint-Nazaire FC",
   district: "Château La Houssais",
   address: "Stade léo lagrange, Rezé",
@@ -384,6 +397,130 @@ file = File.open(Rails.root.join('db/maman.jpg'))
 event8.photo.attach(io: file, filename: 'maman.jpeg', content_type: 'image/jpg')
 event8.save!
 
-puts "event 8 picture done"
+puts "event 9 picture done"
+puts "event 9 creation"
+
+event9 = Event.create!(
+  user: admin3,
+  name: "Rando  Nocturne",
+  public_description: "La rando roller est ouverte à tous. Savoir freiner et tourner est indispensable pour participer à la randonnée. REz-Roller ne prête pas et ne loue pas de rollers",
+  district: "Château La Houssais",
+  address: "Rond point de la Brière, 44000 Rezé",
+  category: "Sport",
+  start_at: Time.new(2021, 1, 4, 19),
+  end_at: Time.new(2021, 1, 4, 21),
+
+  contact_first_name: admin3.first_name,
+  contact_last_name: admin3.last_name,
+  contact_email: admin3.email,
+  contact_phone_number: admin3.phone_number,
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
+  pricing_description: "gratuit",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+puts "event 9 body done"
+puts "event 9 picture creation"
+
+
+file = File.open(Rails.root.join('db/roller.jpeg'))
+event9.photo.attach(io: file, filename: 'roller.jpeg', content_type: 'image/jpeg')
+event9.save!
+
+puts "event 9 picture done"
+puts "event10 creation"
+
+event10 = Event.create!(
+  user: admin3,
+  name: "Visite de La Maison Radieuse (Le Corbusier)",
+  public_description: "Décourverte de l'architecture locale, suivie d'une conférence sur l'oeuvre de Le Corbusier et son emprunte locale.",
+  district: "Hôtel de ville",
+  address: "7 Boulevard le corbusier, 44000 Rezé",
+  category: "Culture",
+  start_at: Time.new(2021, 1, 4, 16),
+  end_at: Time.new(2021, 1, 4, 18),
+
+  contact_first_name: admin3.first_name,
+  contact_last_name: admin3.last_name,
+  contact_email: admin3.email,
+  contact_phone_number: admin3.phone_number,
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
+  pricing_description: "25 euros par personne",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+puts "event 10 body done"
+puts "event 10 picture creation"
+
+
+file = File.open(Rails.root.join('db/corbusier.jpg'))
+event10.photo.attach(io: file, filename: 'corbusier.jpg', content_type: 'image/jpg')
+event10.save!
+
+puts "event 10 picture done"
+puts "event11 creation"
+
+event11 = Event.create!(
+  user: admin3,
+  name: "Débat citoyen: Grandir et vivre ensemble à Rezé",
+  public_description: "Après le lien avec la nature, c’est au tour de l’offre culturelle d’être au cœur de la concertation Grandir et vivre ensemble à Rezé.",
+  district: "Hôtel de ville",
+  address: "8 Pl. Lucien le Meut, 44400 Rezé",
+  category: "Dialogue citoyen",
+  start_at: Time.new(2021, 12, 18, 15),
+  end_at: Time.new(2021, 12, 18, 17),
+
+  contact_first_name: admin3.first_name,
+  contact_last_name: admin3.last_name,
+  contact_email: admin3.email,
+  contact_phone_number: admin3.phone_number,
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
+  pricing_description: "Gratuit, ouvert à toutes et tous, accès PMR",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+puts "event 11 body done"
+puts "event 11 picture creation"
+
+
+file = File.open(Rails.root.join('db/debat.jpg'))
+event11.photo.attach(io: file, filename: 'debat.jpeg', content_type: 'image/jpg')
+event11.save!
+
+puts "event 11 picture done"
+puts "event12 creation"
+
+event12 = Event.create!(
+  user: admin3,
+  name: "Collecte de jouet",
+  public_description: "Collecte de jouets pour le sapin de noêl de la mairie. Privilègiez les jouets de seconde main.",
+  district: "Château La Houssais",
+  address: "50 Rue du Château de Rezé, 44400 Rezé",
+  category: "Petite enfance",
+  start_at: Time.new(2021, 12, 17, 9),
+  end_at: Time.new(2021, 12, 24, 13),
+
+  contact_first_name: admin3.first_name,
+  contact_last_name: admin3.last_name,
+  contact_email: admin3.email,
+  contact_phone_number: admin3.phone_number,
+  required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
+  pricing_description: "Gratuit, ouvert à toutes et tous, accès PMR",
+  status: "pending",
+  accepted_at: Date.today
+)
+
+puts "event 12 body done"
+puts "event 12 picture creation"
+
+
+file = File.open(Rails.root.join('db/jouets.jpg'))
+event12.photo.attach(io: file, filename: 'jouets.jpeg', content_type: 'image/jpg')
+event12.save!
+
+puts "event 12 picture done"
 
 puts "Finished seeding"
