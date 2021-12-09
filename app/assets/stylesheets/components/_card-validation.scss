@@ -1,4 +1,15 @@
+.show-marker {
+  background-color: white !important;
+  color: #0F2C67 !important;
+}
+
+.show-distric {
+  background-color: white !important;
+  color: #0F2C67 !important;
+  border: 1px solid #0F2C67;
+}
 .card {
+
   border: none;
   border-radius: 10px;
   width: 70rem;
@@ -49,16 +60,17 @@
     .address {
       font-size: 0.8em;
       .fa-map-marker-alt {
-        color: #7979DE;
+        color: #0F2C67;
       }
       .clear-text {
         opacity: .5;
       }
       .district {
-        background-color: #7979DE;
+        background-color: white;
         border-radius: 15px;
-        color: white;
+        color: #0F2C67;
         padding: 3px 20px;
+        border: 1px solid #0F2C67;
       }
     }
     .participants {
