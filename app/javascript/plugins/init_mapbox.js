@@ -4,18 +4,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
-    const element = document.createElement('div');
-    element.className = 'marker';
-    element.style.backgroundImage = `url('${marker.image_url}')`;
-    element.style.backgroundRepeat = 'no-repeat';
-    element.style.backgroundSize = 'contain';
-    element.style.backgroundColor = 'white';
-    element.style.borderRadius = '50%';
-    element.style.width = '20px';
-    element.style.height = '20px';
+
 
     // Pass the element as an argument to the new marker
-    new mapboxgl.Marker()
+    new mapboxgl.Marker({ "color": "#E67E23"})
       .setLngLat([marker.lng, marker.lat])
       .setPopup(popup)
       .addTo(map);
