@@ -39,16 +39,16 @@
           <div class="status-event d-flex justify-content-end pb-3 pr-3">
             <% if event.status == "pending" %>
               <p>En attente de validation</p>
-              <i class="fas fa-circle fa-xs pending"></i>
+              <i class="fas fa-circle fa-sm pending"></i>
             <% elsif event.status == "accepted" %>
               <p>Evénement accepté</p>
-              <i class="fas fa-circle fa-xs accepted"></i>
+              <i class="fas fa-circle fa-sm accepted"></i>
             <% elsif event.status == "declined" %>
               <p>Evénement refusé</p>
-              <i class="fas fa-circle fa-xs declined"></i>
+              <i class="fas fa-circle fa-sm declined"></i>
             <% elsif event.status == "canceled" %>
               <p>Evénement annulé</p>
-              <i class="fas fa-circle fa-xs canceled"></i>
+              <i class="fas fa-circle fa-sm canceled"></i>
             <% end %>
           </div>
 
