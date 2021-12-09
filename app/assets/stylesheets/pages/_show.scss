@@ -1,6 +1,15 @@
 .show-global-container {
+
+.test {
+}
+.show-picture {
+  max-width: 200px;
+}
+
+  flex-direction: row;
   .card {
     box-shadow: 1px 1px 3px 1px rgba(15,44,103,0.33);
+
   }
 
 
@@ -14,4 +23,10 @@
   .map-show {
     // height: 100px;
   }
+}
+
+.show-first-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
