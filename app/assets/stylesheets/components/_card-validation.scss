@@ -279,14 +279,15 @@
   text-shadow: orange 1px 0 10px;
 }
 .edit-status {
-  width: 10rem;
+  width: 13rem;
   height: 8rem;
 }
 
 .status-event {
+  align-items: center;
   p {
     margin: 0;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     padding-right: 1em;
   }
   i {
