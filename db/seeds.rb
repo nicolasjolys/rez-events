@@ -443,7 +443,7 @@ puts "event10 creation"
 event10 = Event.create!(
   user: admin1,
   name: "Visite de La Maison Radieuse (Le Corbusier)",
-  public_description: "Décourverte de l'architecture locale, suivie d'une conférence sur l'oeuvre de Le Corbusier et son emprunte locale. Animé par Charles-Édouard Jeanneret-Gris, spécialiste de l'architecture moderne",
+  public_description: "Découverte de l'architecture locale, suivie d'une conférence sur l'oeuvre de Le Corbusier et son emprunte locale. Animé par Charles-Édouard Jeanneret-Gris, spécialiste de l'architecture moderne",
   district: "Hôtel de ville",
   address: "7 Boulevard le corbusier, 44000 Rezé",
   category: "Culture",
