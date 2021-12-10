@@ -81,39 +81,6 @@
         border: 1px solid #0F2C67;
       }
     }
-    .participants {
-      position: relative;
-      background-color: #7979DE;
-      border-radius: 10px;
-      width: 5rem;
-      .fa-users {
-        color: white;
-      }
-    }
-
-    .i-not-participate {
-      background-color: #94BF1A;
-      border: #94BF1A 2px solid;
-      border-radius: 10px;
-      padding: 5px 10px;
-      color: black;
-      width: 9rem;
-      a {
-        color: black;
-        text-decoration: none;
-      }
-    }
-
-    .i-participate {
-      border: #94BF1A 2px solid;
-      border-radius: 10px;
-      padding: 5px 10px;
-      width: 9rem;
-      a {
-        text-decoration: none;
-        color: #94BF1A;
-      }
-    }
 
     .fa-window-close {
       color: #EB5353;
