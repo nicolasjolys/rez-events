@@ -1,6 +1,5 @@
 .accepted {
   background-color: rgb(113, 255, 113);
-
 }
 
 .pending {
@@ -13,12 +12,25 @@
 }
 
 .status {
-
   text-align: center;
   color: white;
   font-weight: bold;
-  height: 50px;
-  width: 50px;
   border-radius: 50%;
-  border-bottom: 1px solid black;
+}
+
+.edit-status {
+  width: 13rem;
+  height: 8rem;
+}
+
+.status-event {
+  align-items: center;
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    padding-right: 1em;
+  }
+  i {
+    height: 12px
+  }
 }

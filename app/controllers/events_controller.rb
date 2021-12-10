@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @markers = [{
       lat: @event.latitude,
       lng: @event.longitude,
-      info_window: render_to_string(partial: "pages/info_window", locals: { event: @event }),
+      info_window: render_to_string(partial: "pages/info_window", locals: { event: @event })
       # image_url: helpers.asset_url("#{event.category}.svg")
     }]
   end
