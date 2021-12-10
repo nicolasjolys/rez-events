@@ -190,7 +190,7 @@ event2 = Event.create!(
   pricing_description: "Accès au stade gratuit, buvette payante",
   equipment_requested: true,
   requested_equipment_description: "Un podium et une sono pour la remise des prix",
-  status: "pending",
+  status: "accepted",
 )
 
 
@@ -222,7 +222,7 @@ event3 = Event.create!(
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit",
-  status: "pending",
+  status: "accepted",
   equipment_requested: true,
   requested_equipment_description: "Un barnum, 5 tables et 18 chaises",
 )
@@ -255,7 +255,7 @@ event4 = Event.create!(
   contact_phone_number: agent2.phone_number,
   required_safety_level: "Niveau 1 - Manifestation de moins de 1500 personnes",
   pricing_description: "Gratuit, dons bienvenus pour l'association",
-  status: "pending",
+  status: "accepted",
   equipment_requested: true,
   requested_equipment_description:"1 estrade pour l'intervenant et une quinzaine de chaises",
 )
@@ -327,7 +327,7 @@ event6 = Event.create!(
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit",
-  status: "pending",
+  status: "accepted",
   accepted_at: Date.today,
   equipment_requested: true,
   requested_equipment_description:"1 barnum en cas de pluie, 80 chaises et 8 tables",
@@ -393,7 +393,7 @@ event8 = Event.create!(
   contact_phone_number: admin1.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "7 euros, adhésion à l'association Maman sereine",
-  status: "pending",
+  status: "accepted",
   accepted_at: Date.today,
 )
 
@@ -424,7 +424,7 @@ event9 = Event.create!(
   contact_phone_number: admin3.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "gratuit",
-  status: "pending",
+  status: "accepted",
   accepted_at: Date.today,
   general_comment:"Si possible, merci de bloquer la circulation entre le Château et le centre ville.",
 )
@@ -456,7 +456,7 @@ event10 = Event.create!(
   contact_phone_number: admin3.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "25 euros par personne",
-  status: "pending",
+  status: "accepted",
   accepted_at: Date.today,
   equipment_requested: true,
   requested_equipment_description:"On a besoin d'un micro pour la conférence",
@@ -490,7 +490,7 @@ event11 = Event.create!(
   contact_phone_number: admin3.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit, ouvert à toutes et tous, accès PMR",
-  status: "pending",
+  status: "accepted",
   accepted_at: Date.today,
 )
 
@@ -521,7 +521,7 @@ event12 = Event.create!(
   contact_phone_number: admin3.phone_number,
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit, ouvert à toutes et tous, accès PMR",
-  status: "pending",
+  status: "accepted",
   accepted_at: Date.today,
   equipment_requested: true,
   requested_equipment_description:"Sapin de noêl, costume de père noël.",
