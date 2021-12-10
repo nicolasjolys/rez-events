@@ -447,7 +447,7 @@ event10 = Event.create!(
   district: "Hôtel de ville",
   address: "7 Boulevard le corbusier, 44000 Rezé",
   category: "Culture",
-  organization_name: "Association d'ARchitecture deRezé",
+  organization_name: "Association d'Architecture de Rezé",
   start_at: Time.new(2021, 1, 4, 16),
   end_at: Time.new(2021, 1, 4, 18),
   contact_first_name: admin3.first_name,
