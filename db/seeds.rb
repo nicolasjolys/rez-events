@@ -140,12 +140,12 @@ puts "event1 creation"
 
 event1 = Event.create!(
   user: resident1,
-  name: "Fête des voisins de Tremoult",
+  name: "Fête des voisins de Trentemoult",
   public_description: "Fête des voisins de La Blordière. Venez nombreuses et nombreux, avec tartes et gâteau, boissons et bonne humeur",
   district: "Trentemoult-les Isles",
   address: " 7 quai Marcel Boissard, 44000 Rezé",
   category: "Autre",
-  organization_name: "Association Tremoult en fête",
+  organization_name: "Association Trentemoult en fête",
   start_at: Time.new(2021, 12, 10, 20, 30),
   end_at: Time.new(2021, 12, 10, 23, 30),
   contact_first_name: resident1.first_name,
