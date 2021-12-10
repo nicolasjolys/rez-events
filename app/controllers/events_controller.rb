@@ -5,9 +5,9 @@ class EventsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR public_description ILIKE :query"
-      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+      @events = Event.where(sql_query, query: "%#{params[:query]}%").order(start_at: :ASC)
     else
-      @events = Event.all
+      @events = Event.all.order(start_at: :ASC)
     end
   end
 
