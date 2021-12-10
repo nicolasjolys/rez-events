@@ -3,19 +3,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  border-radius: 12px;
+  border: 1px solid $primary-orange;
+  border-radius: 10px;
   box-shadow: black;
   width: 80vh;
   margin: 30px;
-  background-color: rgba(255,255,255,0.9);
-  padding: 30px;
+  background-color: white;
+  padding: 30px 20px;
+  h2 {
+    color: $primary-orange;
+  }
 }
 
 .log-container-box {
-  background-image: url('stage.jpg');
-  background-size: cover;
-  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
