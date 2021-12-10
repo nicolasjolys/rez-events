@@ -330,7 +330,7 @@ event6 = Event.create!(
   status: "pending",
   accepted_at: Date.today,
   equipment_requested: true,
-  requested_equipment_description:"1 barnum en cas de pluie",
+  requested_equipment_description:"1 barnum en cas de pluie, 80 chaises et 8 tables",
 )
 
 puts "event 6 body done"
@@ -443,7 +443,7 @@ puts "event10 creation"
 event10 = Event.create!(
   user: admin1,
   name: "Visite de La Maison Radieuse (Le Corbusier)",
-  public_description: "Décourverte de l'architecture locale, suivie d'une conférence sur l'oeuvre de Le Corbusier et son emprunte locale.",
+  public_description: "Décourverte de l'architecture locale, suivie d'une conférence sur l'oeuvre de Le Corbusier et son emprunte locale. Animé par Charles-Édouard Jeanneret-Gris, spécialiste de l'architecture moderne",
   district: "Hôtel de ville",
   address: "7 Boulevard le corbusier, 44000 Rezé",
   category: "Culture",
@@ -460,6 +460,7 @@ event10 = Event.create!(
   accepted_at: Date.today,
   equipment_requested: true,
   requested_equipment_description:"On a besoin d'un micro pour la conférence",
+  general_comment:"",
 )
 
 puts "event 10 body done"
