@@ -145,6 +145,7 @@ event1 = Event.create!(
   district: "La Blordière",
   address: " 42 Rue Georges Boutin, 44000 Rezé",
   category: "Autre",
+  organization_name: "Association La Blordière en fête",
   start_at: Time.new(2022, 1, 7, 20, 30),
   end_at: Time.new(2022, 1, 7, 23, 30),
   contact_first_name: resident1.first_name,
