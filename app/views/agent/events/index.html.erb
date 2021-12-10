@@ -1,7 +1,7 @@
 <div class="container-fluid mb-5 mt-5" id="accordion">
   <% @events.each do |event| %>
     <div class="d-flex align-items-start justify-content-center mx-auto">
-      <div class="card index-cards mx-auto mt-4">
+      <div class="card index-cards mx-auto mt-4 flex-grow-1">
         <div class="card-header d-flex justify-content-between align-items-center btn p-0" data-controller="collapse-radius">
           <div class="d-flex align-items-center">
             <div class="primary-icon text-center <%= category_name_to_color(event.category) %>">
@@ -156,7 +156,7 @@
         </div>
       </div>
       <%# DATES %>
-      <div class="info-dates-right mt-4 flex-grow-1 align-items-center justify-content-center d-flex border-radius-collapse bold" data-collapse-radius-target="greenSquare">
+      <div class="info-dates-right mt-4 align-items-center justify-content-center d-flex border-radius-collapse bold" data-collapse-radius-target="greenSquare">
         <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
           <%= l(event.start_at, format: "%^a") %>
           <%= l(event.start_at, format: "%e") %>
