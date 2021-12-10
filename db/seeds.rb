@@ -157,7 +157,7 @@ event1 = Event.create!(
   equipment_requested: true,
   requested_equipment_description: "6 tables, et 40 chaises, si possible une sonorisation",
   general_comment: "Comme tous les ans, merci à la mairie de nous permettre de partager ce moment de convivialité",
-  status: "pending"
+  status: "pending",
 )
 
 puts "event 1 body done"
@@ -179,6 +179,7 @@ event2 = Event.create!(
   district: "Château La Houssais",
   address: "Stade léo lagrange, Rezé",
   category: "Sport",
+  organization_name: "Rezé Football Club",
   start_at: Time.new(2021, 12, 12, 10, 30),
   end_at: Time.new(2021, 12, 12, 13),
   contact_first_name: organization2.first_name,
@@ -189,7 +190,7 @@ event2 = Event.create!(
   pricing_description: "Accès au stade gratuit, buvette payante",
   equipment_requested: true,
   requested_equipment_description: "Un podium et une sono pour la remise des prix",
-  status: "pending"
+  status: "pending",
 )
 
 
@@ -212,9 +213,9 @@ event3 = Event.create!(
   district: "Pont-Rousseau",
   address: "23 Avenue des treilles, 44000 Rezé",
   category: "Developpement durable",
+  organization_name: "Une proposition de la Mairie de Rezé",
   start_at: Time.new(2021, 12, 17, 7, 15),
   end_at: Time.new(2021, 12, 17, 10),
-
   contact_first_name: admin1.first_name,
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
@@ -223,7 +224,7 @@ event3 = Event.create!(
   pricing_description: "Gratuit",
   status: "pending",
   equipment_requested: true,
-  requested_equipment_description: "Un barnum, 5 tables et 18 chaises"
+  requested_equipment_description: "Un barnum, 5 tables et 18 chaises",
 )
 
 
@@ -245,6 +246,7 @@ event4 = Event.create!(
   district: "Trentemoult-les Isles",
   address: "7 Rue Jean Louis, 44000 Rezé",
   category: "Education-Jeunesse",
+  organization_name: "Association Educ'Pop Nantes",
   start_at: Time.new(2021, 12, 10, 11),
   end_at: Time.new(2021, 12, 12, 22),
   contact_first_name: agent2.first_name,
@@ -253,7 +255,9 @@ event4 = Event.create!(
   contact_phone_number: agent2.phone_number,
   required_safety_level: "Niveau 1 - Manifestation de moins de 1500 personnes",
   pricing_description: "Gratuit, dons bienvenus pour l'association",
-  status: "pending"
+  status: "pending",
+  equipment_requested: true,
+  requested_equipment_description:"1 estrade pour l'intervenant et une quinzaine de chaises",
 )
 
 
@@ -278,9 +282,9 @@ event5 = Event.create!(
   district: "Pont-Rousseau",
   address: "Pont-Rousseau 44000 Rezé",
   category: "Sport",
+  organization_name: "Association Les coureurs du dimanche",
   start_at: Time.new(2021, 12, 19, 8, 30),
   end_at: Time.new(2021, 12, 19, 12, 30),
-
   contact_first_name: admin1.first_name,
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
@@ -314,9 +318,9 @@ event6 = Event.create!(
   district: "Pont-Rousseau",
   address: "22 Rue Bessac, 44000 Rezé",
   category: "Solidarité",
+  organization_name: "Association Les Resto du cœur",
   start_at: Time.new(2021, 12, 28, 13),
   end_at: Time.new(2021, 12, 28, 15),
-
   contact_first_name: admin1.first_name,
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
@@ -324,7 +328,9 @@ event6 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
+  equipment_requested: true,
+  requested_equipment_description:"1 barnum en cas de pluie",
 )
 
 puts "event 6 body done"
@@ -346,6 +352,7 @@ event7 = Event.create!(
   district: "Pont-Rousseau",
   address: "4 Rue du dr Nogues, 44000 Rezé",
   category: "Culture",
+  organization_name: "Association Rezé danse",
   start_at: Time.new(2021, 12, 31, 22),
   end_at: Time.new(2022, 1, 1, 5),
   contact_first_name: admin1.first_name,
@@ -355,7 +362,7 @@ event7 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "5€ l'entrée",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
 )
 
 puts "event 7 body done"
@@ -377,9 +384,9 @@ event8 = Event.create!(
   district: "Pont-Rousseau",
   address: "14 rue Julien Albert, 44000 Rezé",
   category: "Petite enfance",
+  organization_name: "Association Maman sereine",
   start_at: Time.new(2021, 1, 4, 16),
   end_at: Time.new(2021, 1, 4, 18),
-
   contact_first_name: admin1.first_name,
   contact_last_name: admin1.last_name,
   contact_email: admin1.email,
@@ -387,7 +394,7 @@ event8 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "7 euros, adhésion à l'association Maman sereine",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
 )
 
 puts "event 8 body done"
@@ -408,9 +415,9 @@ event9 = Event.create!(
   district: "Château La Houssais",
   address: "Rond point de la Brière, 44000 Rezé",
   category: "Sport",
+  organization_name: "Association Let's Roll",
   start_at: Time.new(2021, 1, 4, 19),
   end_at: Time.new(2021, 1, 4, 21),
-
   contact_first_name: admin3.first_name,
   contact_last_name: admin3.last_name,
   contact_email: admin3.email,
@@ -418,7 +425,8 @@ event9 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "gratuit",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
+  general_comment:"Si possible, merci de bloquer la circulation entre le Château et le centre ville.",
 )
 
 puts "event 9 body done"
@@ -439,9 +447,9 @@ event10 = Event.create!(
   district: "Hôtel de ville",
   address: "7 Boulevard le corbusier, 44000 Rezé",
   category: "Culture",
+  organization_name: "Mairie de Rezé, service culturel",
   start_at: Time.new(2021, 1, 4, 16),
   end_at: Time.new(2021, 1, 4, 18),
-
   contact_first_name: admin3.first_name,
   contact_last_name: admin3.last_name,
   contact_email: admin3.email,
@@ -449,7 +457,9 @@ event10 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "25 euros par personne",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
+  equipment_requested: true,
+  requested_equipment_description:"On a besoin d'un micro pour la conférence",
 )
 
 puts "event 10 body done"
@@ -470,9 +480,9 @@ event11 = Event.create!(
   district: "Hôtel de ville",
   address: "8 Pl. Lucien le Meut, 44400 Rezé",
   category: "Dialogue citoyen",
+  organization_name: "Mairie de Rezé, service culturel",
   start_at: Time.new(2021, 12, 18, 15),
   end_at: Time.new(2021, 12, 18, 17),
-
   contact_first_name: admin3.first_name,
   contact_last_name: admin3.last_name,
   contact_email: admin3.email,
@@ -480,7 +490,7 @@ event11 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit, ouvert à toutes et tous, accès PMR",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
 )
 
 puts "event 11 body done"
@@ -501,9 +511,9 @@ event12 = Event.create!(
   district: "Château La Houssais",
   address: "50 Rue du Château de Rezé, 44400 Rezé",
   category: "Petite enfance",
+  organization_name: "Mairie de Rezé, service culturel",
   start_at: Time.new(2021, 12, 17, 9),
   end_at: Time.new(2021, 12, 24, 13),
-
   contact_first_name: admin3.first_name,
   contact_last_name: admin3.last_name,
   contact_email: admin3.email,
@@ -511,7 +521,9 @@ event12 = Event.create!(
   required_safety_level: 'Niveau 1 - Manifestation de moins de 1500 personnes',
   pricing_description: "Gratuit, ouvert à toutes et tous, accès PMR",
   status: "pending",
-  accepted_at: Date.today
+  accepted_at: Date.today,
+  equipment_requested: true,
+  requested_equipment_description:"Sapin de noêl, costume de père noël.",
 )
 
 puts "event 12 body done"
