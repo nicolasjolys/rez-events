@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   def home
     if params[:query].present?
       sql_query = "name ILIKE :query OR public_description ILIKE :query OR category ILIKE :query"
-      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+      @events = Event.where(sql_query, query: "%#{params[:query]}%").order(start_at: :ASC)
     else
-      @events = Event.all.where(status: "accepted")
+      @events = Event.all.where(status: "accepted").order(start_at: :ASC)
     end
     @markers = @events.geocoded.map do |event|
       {
