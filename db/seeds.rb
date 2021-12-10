@@ -146,8 +146,8 @@ event1 = Event.create!(
   address: " 42 Rue Georges Boutin, 44000 Rezé",
   category: "Autre",
   organization_name: "Association La Blordière en fête",
-  start_at: Time.new(2022, 1, 7, 20, 30),
-  end_at: Time.new(2022, 1, 7, 23, 30),
+  start_at: Time.new(2022, 12, 10, 20, 30),
+  end_at: Time.new(2022, 12, 10, 23, 30),
   contact_first_name: resident1.first_name,
   contact_last_name: resident1.last_name,
   contact_email: resident1.email,
@@ -441,13 +441,13 @@ puts "event 9 picture done"
 puts "event10 creation"
 
 event10 = Event.create!(
-  user: admin3,
+  user: admin1,
   name: "Visite de La Maison Radieuse (Le Corbusier)",
   public_description: "Décourverte de l'architecture locale, suivie d'une conférence sur l'oeuvre de Le Corbusier et son emprunte locale.",
   district: "Hôtel de ville",
   address: "7 Boulevard le corbusier, 44000 Rezé",
   category: "Culture",
-  organization_name: "Mairie de Rezé, service culturel",
+  organization_name: "Association d'ARchitecture deRezé",
   start_at: Time.new(2021, 1, 4, 16),
   end_at: Time.new(2021, 1, 4, 18),
   contact_first_name: admin3.first_name,
