@@ -145,7 +145,7 @@ event1 = Event.create!(
   district: "Trentemoult-les Isles",
   address: " 7 quai Marcel Boissard, 44000 Rezé",
   category: "Autre",
-  organization_name: "Association La Blordière en fête",
+  organization_name: "Association Tremoult en fête",
   start_at: Time.new(2021, 12, 10, 20, 30),
   end_at: Time.new(2021, 12, 10, 23, 30),
   contact_first_name: resident1.first_name,
