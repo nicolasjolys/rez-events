@@ -11,6 +11,5 @@ export default class extends Controller {
         this.greenSquareTarget.classList.add("border-radius-collapse")
       }, 400);
     }
-    // console.log(this.greenSquareTarget)
   }
 }

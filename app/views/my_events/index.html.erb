@@ -1,4 +1,4 @@
-<div class="container-fluid mb-5" id="accordion">
+<div class="container-fluid mb-5 mt-5" id="accordion">
   <% @events.each do |event| %>
     <%# CARD %>
     <div class="d-flex align-items-start justify-content-center mx-auto">
@@ -164,7 +164,7 @@
         </div>
       </div>
       <%# DATES %>
-      <div class="info-dates mt-4 flex-grow-1 align-items-center justify-content-center d-flex bold border-radius-collapse" data-collapse-radius-target="greenSquare">
+      <div class="info-dates-right mt-4 flex-grow-1 align-items-center justify-content-center d-flex bold border-radius-collapse" data-collapse-radius-target="greenSquare">
         <% if event.start_at.year == event.end_at.year && event.start_at.month == event.end_at.month && event.start_at.day == event.end_at.day %>
           <%= l(event.start_at, format: "%^a") %>
           <%= l(event.start_at, format: "%e") %>
